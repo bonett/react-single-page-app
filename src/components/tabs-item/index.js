@@ -6,9 +6,9 @@ import './style.scss';
 
 function TabsItem() {
     return (
-        <Tabs defaultActiveKey="profile" id="uncontrolled-tab-example">
-            <Tab eventKey="home" title="Home"></Tab>
-            <Tab eventKey="profile" title="Profile"></Tab>
+        <Tabs defaultActiveKey="courses" id="uncontrolled-tab-example">
+            <Tab eventKey="courses" title="COURSES"></Tab>
+            <Tab eventKey="providers" title="PROVIDERS"></Tab>
         </Tabs>
     );
 }
