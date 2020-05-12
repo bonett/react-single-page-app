@@ -2,31 +2,30 @@ import React from 'react';
 import {
     BrowserRouter as Router,
     Switch,
-    Route,
-    Link
-  } from "react-router-dom";
-  
+    Route
+} from "react-router-dom";
+
 import Home from './home';
 
+import Navigation from '../components/navigation';
+import NoMatch from './no-match';
+
 function RouteApp() {
-  return (
-    <Router>
-      <div>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-          </ul>
-        </nav>
-        <Switch>
-          <Route path="/">
-            <Home />
-          </Route>
-        </Switch>
-      </div>
-    </Router>
-  );
+    return (
+        <Router>
+            <div>
+                <Navigation />
+                <Switch>
+                    <Route exact path="/">
+                        <Home />
+                    </Route>
+                    <Route path="*">
+                        <NoMatch />
+                    </Route>
+                </Switch>
+            </div>
+        </Router>
+    );
 }
 
 export default RouteApp;
