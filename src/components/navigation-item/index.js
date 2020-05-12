@@ -4,17 +4,20 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import './style.scss';
 
 function NavItem() {
+    
     return (
         <Nav className="mr-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#link">Link</Nav.Link>
-            <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-                <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+            <Nav.Link href="/features">Features</Nav.Link>
+            <Nav.Link href="/plans">Plans</Nav.Link>
+            <NavDropdown title="Organizations" id="basic-nav-dropdown">
+                <NavDropdown.Item >Action</NavDropdown.Item>
+                <NavDropdown.Item >Another action</NavDropdown.Item>
+                <NavDropdown.Item >Something</NavDropdown.Item>
                 <NavDropdown.Divider />
-                <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
+                <NavDropdown.Item >Separated link</NavDropdown.Item>
             </NavDropdown>
+            <Nav.Link href="/browse-courses">Browse courses</Nav.Link>
+            <Nav.Link href="/support">Support</Nav.Link>
         </Nav>
     );
 }

@@ -5,7 +5,7 @@ import {
     Route
 } from "react-router-dom";
 
-import Home from './home';
+import BrowseCourses from './browse-courses';
 
 import Navigation from '../components/navigation';
 import NoMatch from './no-match';
@@ -13,17 +13,17 @@ import NoMatch from './no-match';
 function RouteApp() {
     return (
         <Router>
-            <div>
+            <React.Fragment>
                 <Navigation />
                 <Switch>
-                    <Route exact path="/">
-                        <Home />
+                    <Route exact path="/" redirect="/browse-courses">
+                        <BrowseCourses />
                     </Route>
                     <Route path="*">
                         <NoMatch />
                     </Route>
                 </Switch>
-            </div>
+            </React.Fragment>
         </Router>
     );
 }
