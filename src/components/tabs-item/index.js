@@ -4,13 +4,17 @@ import Tab from 'react-bootstrap/Tab';
 
 import './style.scss';
 
-function TabsItem() {
+function TasbContent() {
     return (
         <Tabs defaultActiveKey="courses" id="uncontrolled-tab-example">
-            <Tab eventKey="courses" title="COURSES"></Tab>
-            <Tab eventKey="providers" title="PROVIDERS"></Tab>
+            <Tab eventKey="courses" title="COURSES">
+                Hols
+            </Tab>
+            <Tab eventKey="providers" title="PROVIDERS">
+                HOlis
+            </Tab>
         </Tabs>
     );
 }
 
-export default TabsItem;
+export default TasbContent;

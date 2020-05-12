@@ -9,7 +9,7 @@ function HeaderContent() {
         <header>
             <div className="container">
                 <Row>
-                    <Col md={{ span: 6, offset: 3 }}>
+                    <Col md={{ span: 8, offset: 2 }}>
                         <FormContent />
                     </Col>
                 </Row>

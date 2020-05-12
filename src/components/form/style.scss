@@ -1,0 +1,19 @@
+@import "./../../themes/variables.scss";
+
+form {
+    label {
+        color: $white;
+        font-size: 1.5em !important;
+    }
+
+    select {
+        background-color: $blue-contrast-1 !important;
+        border-color: $white !important;
+        color: $white !important;
+        height: 52px !important;
+    }
+
+    input {
+        height: 52px !important;
+    }
+}

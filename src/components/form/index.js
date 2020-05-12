@@ -15,22 +15,16 @@ function FormContent() {
                 <Col sm="4">
                     <Form.Group controlId="exampleForm.ControlSelect1">
                         <Form.Control as="select">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
+                            <option>Florida</option>
+                            <option>New York</option>
                         </Form.Control>
                     </Form.Group>
                 </Col>
                 <Col sm="5">
-                    <Form.Group controlId="exampleForm.ControlSelect1">
+                    <Form.Group controlId="exampleForm.ControlSelect2">
                         <Form.Control as="select">
-                            <option>1</option>
+                            <option>Medial Doctor</option>
                             <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
                         </Form.Control>
                     </Form.Group>
                 </Col>
@@ -43,7 +37,7 @@ function FormContent() {
                         </InputGroup.Prepend>
                         <Form.Control
                             type="text"
-                            placeholder="Username"
+                            placeholder="Search courses and providers"
                             aria-describedby="inputGroupPrepend"
                             name="username"
                         />
