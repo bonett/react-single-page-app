@@ -1,1 +1,10 @@
 @import "./../../themes/variables.scss";
+
+.navbar {
+    background-color: $white !important;
+    height: 80px !important;
+    
+    &__content {
+
+    }
+}
