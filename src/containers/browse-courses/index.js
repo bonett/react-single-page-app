@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import HeaderContent from '../../components/header';
-import WrapperContent from '../../components/wrapper';
+import WrapperContent from '../../components/wrapper-content';
 import './style.scss';
 
 class BrowseCourses extends Component {

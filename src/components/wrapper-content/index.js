@@ -3,12 +3,13 @@ import Tabs from 'react-bootstrap/Tabs';
 import Tab from 'react-bootstrap/Tab';
 
 import './style.scss';
+import CoursesContent from '../courses-content';
 
-function TasbContent() {
+function WrapperContent() {
     return (
         <Tabs defaultActiveKey="courses" id="uncontrolled-tab-example">
             <Tab eventKey="courses" title="COURSES">
-                Hols
+                <CoursesContent />
             </Tab>
             <Tab eventKey="providers" title="PROVIDERS">
                 HOlis
@@ -17,4 +18,4 @@ function TasbContent() {
     );
 }
 
-export default TasbContent;
+export default WrapperContent;

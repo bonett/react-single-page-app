@@ -4,13 +4,14 @@ import Button from 'react-bootstrap/Button';
 import Image from 'react-bootstrap/Image';
 import NavItem from '../navigation-item';
 import './style.scss';
+import Container from 'react-bootstrap/Container';
 
 const logo = require('./../../assets/img/logo.png');
 
 function Navigation() {
     return (
         <Navbar expand="lg" className="navbar__content">
-            <div className="container">
+            <Container>
                 <Navbar.Brand href="/">
                     <Image src={logo}/>
                 </Navbar.Brand>
@@ -22,7 +23,7 @@ function Navigation() {
                         <Button variant="success">7 day trial</Button>
                     </div>
                 </Navbar.Collapse>
-            </div>
+            </Container>
         </Navbar>
     );
 }

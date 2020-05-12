@@ -2,18 +2,19 @@ import React from 'react';
 import FormContent from "../form";
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
+import Container from 'react-bootstrap/Container';
 import './style.scss';
 
 function HeaderContent() {
     return (
         <header>
-            <div className="container">
+            <Container>
                 <Row>
                     <Col md={{ span: 12, offset: 0 }} lg={{ span: 10, offset: 1 }}>
                         <FormContent />
                     </Col>
                 </Row>
-            </div>
+            </Container>
         </header>
     );
 }
