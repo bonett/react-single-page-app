@@ -1,6 +1,10 @@
 @import "./../node_modules/bootstrap/dist/css/bootstrap.min.css";
 @import "./themes/variables.scss";
 
+body {
+  font-family: $font-family;
+}
+
 * {
   outline: none;
 }
