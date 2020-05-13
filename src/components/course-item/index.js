@@ -1,10 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
-
-import './style.scss';
 import ImageComponent from '../shared/image';
+import SmallComponent from '../shared/small';
+import IconComponent from '../shared/icon';
 
 const getTotalHourProfession = (course) => {
     let hours = 0;
@@ -59,24 +60,24 @@ const CourseItemComponent = (props) => {
                                             null
                                     }
                                     <Col className="card__item-caption">
-                                        <h3 className="card__item-caption--title">{item.course.name}</h3>
+                                        <h3 className="title title--color">{item.course.name}</h3>
                                         {
-                                            item.isFeatured ? <small className="card__item-caption--featured">FEATURED</small> : null
+                                            item.isFeatured ? <SmallComponent text={'FEATURED'} /> : null
                                         }
 
-                                        <p className="card__item-caption--description">{getProviderName(item.course)}</p>
-                                        <div className="card__item-caption-extra">
-                                            <h4><i className="fa fa-clock-o"></i> {getTotalHourProfession(item.course)}</h4>
-                                            <h4><i className="fa fa-laptop"></i> {getDeliveryMethod(item.course)}</h4>
+                                        <p className="text text--color">{getProviderName(item.course)}</p>
+                                        <div className="detail">
+                                            <h4 className="detail-course detail-course--color"><IconComponent iconName={'clock-o'} /> {getTotalHourProfession(item.course)}</h4>
+                                            <h4 className="detail-course detail-course--color"><IconComponent iconName={'laptop'} />{getDeliveryMethod(item.course)}</h4>
                                         </div>
                                     </Col>
-                                    <Col xs={2} className="card__item-feed">
-                                        <h2 className="card__item-feed--prize">
+                                    <Col xs={2} className="card__item-share">
+                                        <h2 className="text text--color">
                                             {
                                                 item.isFree ? 'Free' : `$ ${item.price}`
                                             }
                                         </h2>
-                                        <a href={item.course.registrationWebsite} target="_blank" className="card__item-feed--share"><i className="fa fa-share"></i></a>
+                                        <button onClick={(() => window.open(item.course.registrationWebsite))} className="share-button share-button--color"><i className="fa fa-share"></i></button>
                                     </Col>
                                 </Row>
                             </Card.Body>
@@ -86,6 +87,10 @@ const CourseItemComponent = (props) => {
             }
         </React.Fragment>
     );
+}
+
+CourseItemComponent.propTypes = {
+    courseList: PropTypes.object.isRequired,
 }
 
 export default CourseItemComponent;

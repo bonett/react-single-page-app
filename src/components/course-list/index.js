@@ -6,6 +6,7 @@ import Container from 'react-bootstrap/Container';
 import CourseItemComponent from '../course-item';
 import FilterComponent from '../filter';
 import SortItemComponent from '../sort-item';
+import SkeletonComponent from './../shared/skeleton'
 
 import './style.scss';
 
@@ -13,8 +14,25 @@ const CourseListComponent = (props) => {
 
     const { courseList } = props;
 
-    const featureList = courseList.featured,
-        defaultList = courseList.items;
+    let featureList, defaultList;
+
+    const getindexPagination = (list) => {
+        if (list) {
+            return list.totalItems;
+        }
+    }
+
+    const getDataCourses = (list) => {
+
+        if (list) {
+            featureList = list.featured;
+            defaultList = list.items;
+
+            return true;
+        } else {
+            return false;
+        }
+    }
 
     return (
         <div className="courses">
@@ -28,7 +46,7 @@ const CourseListComponent = (props) => {
                             <Col sm={12} md={12} lg={9} className="courses__content">
                                 <Row>
                                     <Col sm={7}>
-                                        <h6>Page 1 of {courseList.totalItems} results</h6>
+                                        <h6>Page 1 of {getindexPagination(courseList)} results</h6>
                                     </Col>
                                     <Col sm={5}>
                                         <SortItemComponent />
@@ -36,10 +54,14 @@ const CourseListComponent = (props) => {
                                 </Row>
                                 <Row>
                                     <Col sm={12}>
-                                        <CourseItemComponent courseList={featureList} />
-                                    </Col>
-                                    <Col sm={12}>
-                                        <CourseItemComponent courseList={defaultList} />
+                                        {
+                                            getDataCourses(courseList) ?
+                                                <React.Fragment>
+                                                    <CourseItemComponent courseList={featureList} />
+                                                    <CourseItemComponent courseList={defaultList} />
+                                                </React.Fragment> :
+                                                <SkeletonComponent />
+                                        }
                                     </Col>
                                 </Row>
                             </Col>

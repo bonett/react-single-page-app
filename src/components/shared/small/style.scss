@@ -1,0 +1,11 @@
+@import "./../../../themes/variables.scss";
+
+
+small {
+    border: 1px solid $green;
+    color: $green;
+    font-size: 0.6em;
+    font-weight: 600;
+    padding: 2px 4px;
+    margin-bottom: 10px;
+}
