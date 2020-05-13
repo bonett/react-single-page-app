@@ -4,6 +4,12 @@
         flex-direction: row;
         justify-content: flex-end;
 
+        label {
+            &:before {
+              display: none;
+            }
+          }
+
         &-text {
             display: flex;
             flex-direction: row;

@@ -15,7 +15,7 @@ class BrowseCourses extends Component {
       profession: "36",
       courseType: 'CD_ANYTIME',
       pageIndex: 1,
-      PageSize: 10
+      PageSize: 10,
     };
   }
 
@@ -98,13 +98,17 @@ class BrowseCourses extends Component {
   }
 
   render() {
-
+    let totalPages = 0;
     const { courseList, state, profession, sortField, pageIndex, featureList } = this.state;
+
+    if (courseList) {
+      totalPages = Math.round(courseList.totalItems / 10 + 0.3);
+    }
 
     return (
       <React.Fragment>
         <HeaderComponent state={state} profession={profession} sortField={sortField} selectStateOption={this.getSelectStateOption} selectMedicalOption={this.getSelectMedicalOption} />
-        <WrapperComponent courseList={courseList} featureList={featureList} selectSortOption={this.getSelectSortOption} pageIndex={pageIndex} previousPageItems={this.getPreviousPage} nextPageItems={this.getNextPage} />
+        <WrapperComponent courseList={courseList} featureList={featureList} selectSortOption={this.getSelectSortOption} pageIndex={pageIndex} previousPageItems={this.getPreviousPage} nextPageItems={this.getNextPage} totalPages={totalPages} />
       </React.Fragment>
     )
   }

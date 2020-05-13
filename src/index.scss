@@ -16,11 +16,20 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
+    padding-left: 1.2em;
 
     label {
       color: $gray-contrast-1;
       font-size: 0.9em;
       padding-top: 5px;
+    }
+  }
+
+  &-group {
+    label {
+      &:before {
+        display: none;
+      }
     }
   }
 }

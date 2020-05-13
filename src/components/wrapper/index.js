@@ -8,7 +8,7 @@ import './style.scss';
 
 const WrapperComponent = (props) => {
 
-    const { courseList, sortField, featureList, selectSortOption, pageIndex, previousPageItems, nextPageItems } = props;
+    const { courseList, sortField, featureList, selectSortOption, pageIndex, previousPageItems, nextPageItems, totalPages } = props;
 
     const getSelectSortOption = (option) => {
         selectSortOption(option)
@@ -26,7 +26,7 @@ const WrapperComponent = (props) => {
     return (
         <Tabs defaultActiveKey="courses" id="uncontrolled-tab-example">
             <Tab eventKey="courses" title="COURSES">
-                <CourseListComponent courseList={courseList} featureList={featureList}  sortField={sortField} selectSortOption={getSelectSortOption} pageIndex={pageIndex} previousPageItems={getPreviousPage} nextPageItems={getNextPage} />
+                <CourseListComponent courseList={courseList} totalPages={totalPages} featureList={featureList}  sortField={sortField} selectSortOption={getSelectSortOption} pageIndex={pageIndex} previousPageItems={getPreviousPage} nextPageItems={getNextPage} />
             </Tab>
             <Tab eventKey="providers" title="PROVIDERS" disabled>
                 Providers
@@ -43,6 +43,7 @@ WrapperComponent.propTypes = {
     pageIndex: PropTypes.number,
     previousPageItems: PropTypes.func,
     nextPageItems: PropTypes.func,
+    totalPages: PropTypes.number,
 }
 
 

@@ -10,8 +10,6 @@ const AccordeonComponent = (props) => {
 
     const { accordeonContent } = props;
 
-    console.log(accordeonContent)
-
     return (
         <React.Fragment>
             {
