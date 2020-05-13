@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
-import HeaderContent from '../../components/header';
+import HeaderContent from '../../components/header-component';
 import WrapperContent from '../../components/wrapper-content';
-import './style.scss';
 
 class BrowseCourses extends Component {
   constructor() {
     super();
 
     this.state = {
-      courses: null
+      courseList: null
     };
   }
 
@@ -17,16 +16,21 @@ class BrowseCourses extends Component {
       return resolve.json();
     }).then(data => {
       this.setState({
-        courses: data
+        courseList: data
       })
     });
   }
 
   render() {
+    
+    const { courseList } = this.state;
+
     return (
       <React.Fragment>
         <HeaderContent />
-        <WrapperContent />
+        {
+          courseList ? <WrapperContent courseList={courseList}/> : null
+        }
       </React.Fragment>
     )
   }

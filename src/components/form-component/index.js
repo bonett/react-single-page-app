@@ -5,7 +5,7 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import './style.scss';
 
-function FormContent() {
+const FormContent = () => {
     return (
         <Form>
             <Row>

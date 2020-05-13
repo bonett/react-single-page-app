@@ -1,11 +1,11 @@
 import React from 'react';
-import FormContent from "../form";
+import FormContent from "../form-component";
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
 import './style.scss';
 
-function HeaderContent() {
+const HeaderContent = () => {
     return (
         <header>
             <Container>

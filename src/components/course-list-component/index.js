@@ -1,13 +1,17 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
-import CourseItem from '../course-item';
+import CourseItemComponent from '../course-item-component';
 import FilterContent from '../filter';
 import './style.scss';
 import SortItem from '../sort-item';
 
-function CoursesContent() {
+const CourseListComponent = (props) => {
+
+    const { courseList } = props;
+
     return (
         <div className="courses">
             <Container>
@@ -15,12 +19,12 @@ function CoursesContent() {
                     <Col md={{ span: 12, offset: 0 }} lg={{ span: 10, offset: 1 }}>
                         <Row>
                             <Col sm={12} md={12} lg={3} className="courses__filter">
-                                <FilterContent />                                    
+                                <FilterContent />
                             </Col>
                             <Col sm={12} md={12} lg={9} className="courses__content">
                                 <Row>
                                     <Col sm={6}>
-                                        <h6>Page 1 of 1489 results</h6>
+                                        <h6>Page 1 of {courseList.totalItems} results</h6>
                                     </Col>
                                     <Col sm={6}>
                                         <SortItem />
@@ -28,7 +32,7 @@ function CoursesContent() {
                                 </Row>
                                 <Row>
                                     <Col sm={12}>
-                                        <CourseItem />
+                                        <CourseItemComponent courseList={courseList}/>
                                     </Col>
                                 </Row>
                             </Col>
@@ -40,4 +44,8 @@ function CoursesContent() {
     );
 }
 
-export default CoursesContent;
+CourseListComponent.propTypes = {
+    courseList: PropTypes.object.isRequired,
+}
+
+export default CourseListComponent;
