@@ -8,12 +8,16 @@ import './style.scss';
 
 const WrapperComponent = (props) => {
 
-    const { courseList, sortField } = props;
+    const { courseList, sortField, selectSortOption } = props;
+
+    const getSelectSortOption = (option) => {
+        selectSortOption(option)
+    }
 
     return (
         <Tabs defaultActiveKey="courses" id="uncontrolled-tab-example">
             <Tab eventKey="courses" title="COURSES"> 
-                <CourseListComponent courseList={courseList} sortField={sortField} />
+                <CourseListComponent courseList={courseList} sortField={sortField} selectSortOption={getSelectSortOption} />
             </Tab>
             <Tab eventKey="providers" title="PROVIDERS" disabled>
                 Providers
@@ -24,7 +28,8 @@ const WrapperComponent = (props) => {
 
 WrapperComponent.propTypes = {
     courseList: PropTypes.object,
-    sortField: PropTypes.string.isRequired,
+    sortField: PropTypes.string,
+    selectSortOption: PropTypes.func,
 }
 
 

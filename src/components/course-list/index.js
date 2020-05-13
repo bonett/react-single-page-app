@@ -12,7 +12,7 @@ import './style.scss';
 
 const CourseListComponent = (props) => {
 
-    const { courseList, sortField } = props;
+    const { courseList, sortField, selectSortOption } = props;
 
     let featureList, defaultList;
 
@@ -34,6 +34,10 @@ const CourseListComponent = (props) => {
         }
     }
 
+    const getSelectSortOption = (option) => {
+        selectSortOption(option)
+    }
+
     return (
         <div className="courses">
             <Container>
@@ -47,7 +51,7 @@ const CourseListComponent = (props) => {
                                 <Row className="courses__content-sort">
                                     <Col><h6>Page 1 of {getindexPagination(courseList)} results</h6></Col>
                                     <Col>
-                                        <SortItemComponent sortField={sortField} />
+                                        <SortItemComponent sortField={sortField} selectSortOption={getSelectSortOption} />
                                     </Col>
                                 </Row>
                                 <div>
@@ -70,8 +74,9 @@ const CourseListComponent = (props) => {
 }
 
 CourseListComponent.propTypes = {
-    courseList: PropTypes.object.isRequired,
-    sortField: PropTypes.string.isRequired,
+    courseList: PropTypes.any,
+    sortField: PropTypes.string,
+    selectSortOption: PropTypes.func,
 }
 
 export default CourseListComponent;

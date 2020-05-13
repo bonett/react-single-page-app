@@ -17,10 +17,10 @@ const SkeletonComponent = () => {
                             <Skeleton count={1} width="200px" height="150px" borderRadius="0px" />
                         </Col>
                         <Col className="card__item-caption">
-                            <h3 lassName="title title--color"><Skeleton count={1} height="20px" borderRadius="0px" /></h3>
-                            <h3 lassName="title title--color"><Skeleton count={1} width="50px" height="14px" borderRadius="0px" /></h3>
+                            <h3 className="title title--color"><Skeleton count={1} height="20px" borderRadius="0px" /></h3>
+                            <h3 className="title title--color"><Skeleton count={1} width="50px" height="14px" borderRadius="0px" /></h3>
                             <p className="text text--color"><Skeleton count={1} height="20px" borderRadius="0px" /></p>
-                            <div cclassName="detail">
+                            <div className="detail">
                                 <Skeleton count={1} height="20px" borderRadius="0px" />
                             </div>
                         </Col>
@@ -40,10 +40,10 @@ const SkeletonComponent = () => {
                             <Skeleton count={1} width="200px" height="150px" borderRadius="0px" />
                         </Col>
                         <Col className="card__item-caption">
-                            <h3 lassName="title title--color"><Skeleton count={1} height="20px" borderRadius="0px" /></h3>
-                            <h3 lassName="title title--color"><Skeleton count={1} width="50px" height="14px" borderRadius="0px" /></h3>
+                            <h3 className="title title--color"><Skeleton count={1} height="20px" borderRadius="0px" /></h3>
+                            <h3 className="title title--color"><Skeleton count={1} width="50px" height="14px" borderRadius="0px" /></h3>
                             <p className="text text--color"><Skeleton count={1} height="20px" borderRadius="0px" /></p>
-                            <div cclassName="detail">
+                            <div className="detail">
                                 <Skeleton count={1} height="20px" borderRadius="0px" />
                             </div>
                         </Col>
@@ -63,10 +63,10 @@ const SkeletonComponent = () => {
                             <Skeleton count={1} width="200px" height="150px" borderRadius="0px" />
                         </Col>
                         <Col className="card__item-caption">
-                            <h3 lassName="title title--color"><Skeleton count={1} height="20px" borderRadius="0px" /></h3>
-                            <h3 lassName="title title--color"><Skeleton count={1} width="50px" height="14px" borderRadius="0px" /></h3>
+                            <h3 className="title title--color"><Skeleton count={1} height="20px" borderRadius="0px" /></h3>
+                            <h3 className="title title--color"><Skeleton count={1} width="50px" height="14px" borderRadius="0px" /></h3>
                             <p className="text text--color"><Skeleton count={1} height="20px" borderRadius="0px" /></p>
-                            <div cclassName="detail">
+                            <div className="detail">
                                 <Skeleton count={1} height="20px" borderRadius="0px" />
                             </div>
                         </Col>
@@ -83,10 +83,10 @@ const SkeletonComponent = () => {
                 <Card.Body>
                     <Row>
                         <Col className="card__item-caption">
-                            <h3 lassName="title title--color"><Skeleton count={1} height="20px" borderRadius="0px" /></h3>
-                            <h3 lassName="title title--color"><Skeleton count={1} width="50px" height="14px" borderRadius="0px" /></h3>
+                            <h3 className="title title--color"><Skeleton count={1} height="20px" borderRadius="0px" /></h3>
+                            <h3 className="title title--color"><Skeleton count={1} width="50px" height="14px" borderRadius="0px" /></h3>
                             <p className="text text--color"><Skeleton count={1} height="20px" borderRadius="0px" /></p>
-                            <div cclassName="detail">
+                            <div className="detail">
                                 <Skeleton count={1} height="20px" borderRadius="0px" />
                             </div>
                         </Col>
@@ -103,10 +103,10 @@ const SkeletonComponent = () => {
                 <Card.Body>
                     <Row>
                         <Col className="card__item-caption">
-                            <h3 lassName="title title--color"><Skeleton count={1} height="20px" borderRadius="0px" /></h3>
-                            <h3 lassName="title title--color"><Skeleton count={1} width="50px" height="14px" borderRadius="0px" /></h3>
+                            <h3 className="title title--color"><Skeleton count={1} height="20px" borderRadius="0px" /></h3>
+                            <h3 className="title title--color"><Skeleton count={1} width="50px" height="14px" borderRadius="0px" /></h3>
                             <p className="text text--color"><Skeleton count={1} height="20px" borderRadius="0px" /></p>
-                            <div cclassName="detail">
+                            <div className="detail">
                                 <Skeleton count={1} height="20px" borderRadius="0px" />
                             </div>
                         </Col>
@@ -123,10 +123,10 @@ const SkeletonComponent = () => {
                 <Card.Body>
                     <Row>
                         <Col className="card__item-caption">
-                            <h3 lassName="title title--color"><Skeleton count={1} height="20px" borderRadius="0px" /></h3>
-                            <h3 lassName="title title--color"><Skeleton count={1} width="50px" height="14px" borderRadius="0px" /></h3>
+                            <h3 className="title title--color"><Skeleton count={1} height="20px" borderRadius="0px" /></h3>
+                            <h3 className="title title--color"><Skeleton count={1} width="50px" height="14px" borderRadius="0px" /></h3>
                             <p className="text text--color"><Skeleton count={1} height="20px" borderRadius="0px" /></p>
-                            <div cclassName="detail">
+                            <div className="detail">
                                 <Skeleton count={1} height="20px" borderRadius="0px" />
                             </div>
                         </Col>
@@ -143,10 +143,10 @@ const SkeletonComponent = () => {
                 <Card.Body>
                     <Row>
                         <Col className="card__item-caption">
-                            <h3 lassName="title title--color"><Skeleton count={1} height="20px" borderRadius="0px" /></h3>
-                            <h3 lassName="title title--color"><Skeleton count={1} width="50px" height="14px" borderRadius="0px" /></h3>
+                            <h3 className="title title--color"><Skeleton count={1} height="20px" borderRadius="0px" /></h3>
+                            <h3 className="title title--color"><Skeleton count={1} width="50px" height="14px" borderRadius="0px" /></h3>
                             <p className="text text--color"><Skeleton count={1} height="20px" borderRadius="0px" /></p>
-                            <div cclassName="detail">
+                            <div className="detail">
                                 <Skeleton count={1} height="20px" borderRadius="0px" />
                             </div>
                         </Col>
@@ -163,10 +163,10 @@ const SkeletonComponent = () => {
                 <Card.Body>
                     <Row>
                         <Col className="card__item-caption">
-                            <h3 lassName="title title--color"><Skeleton count={1} height="20px" borderRadius="0px" /></h3>
-                            <h3 lassName="title title--color"><Skeleton count={1} width="50px" height="14px" borderRadius="0px" /></h3>
+                            <h3 className="title title--color"><Skeleton count={1} height="20px" borderRadius="0px" /></h3>
+                            <h3 className="title title--color"><Skeleton count={1} width="50px" height="14px" borderRadius="0px" /></h3>
                             <p className="text text--color"><Skeleton count={1} height="20px" borderRadius="0px" /></p>
-                            <div cclassName="detail">
+                            <div className="detail">
                                 <Skeleton count={1} height="20px" borderRadius="0px" />
                             </div>
                         </Col>
@@ -183,10 +183,10 @@ const SkeletonComponent = () => {
                 <Card.Body>
                     <Row>
                         <Col className="card__item-caption">
-                            <h3 lassName="title title--color"><Skeleton count={1} height="20px" borderRadius="0px" /></h3>
-                            <h3 lassName="title title--color"><Skeleton count={1} width="50px" height="14px" borderRadius="0px" /></h3>
+                            <h3 className="title title--color"><Skeleton count={1} height="20px" borderRadius="0px" /></h3>
+                            <h3 className="title title--color"><Skeleton count={1} width="50px" height="14px" borderRadius="0px" /></h3>
                             <p className="text text--color"><Skeleton count={1} height="20px" borderRadius="0px" /></p>
-                            <div cclassName="detail">
+                            <div className="detail">
                                 <Skeleton count={1} height="20px" borderRadius="0px" />
                             </div>
                         </Col>
@@ -203,10 +203,10 @@ const SkeletonComponent = () => {
                 <Card.Body>
                     <Row>
                         <Col className="card__item-caption">
-                            <h3 lassName="title title--color"><Skeleton count={1} height="20px" borderRadius="0px" /></h3>
-                            <h3 lassName="title title--color"><Skeleton count={1} width="50px" height="14px" borderRadius="0px" /></h3>
+                            <h3 className="title title--color"><Skeleton count={1} height="20px" borderRadius="0px" /></h3>
+                            <h3 className="title title--color"><Skeleton count={1} width="50px" height="14px" borderRadius="0px" /></h3>
                             <p className="text text--color"><Skeleton count={1} height="20px" borderRadius="0px" /></p>
-                            <div cclassName="detail">
+                            <div className="detail">
                                 <Skeleton count={1} height="20px" borderRadius="0px" />
                             </div>
                         </Col>
@@ -223,10 +223,10 @@ const SkeletonComponent = () => {
                 <Card.Body>
                     <Row>
                         <Col className="card__item-caption">
-                            <h3 lassName="title title--color"><Skeleton count={1} height="20px" borderRadius="0px" /></h3>
-                            <h3 lassName="title title--color"><Skeleton count={1} width="50px" height="14px" borderRadius="0px" /></h3>
+                            <h3 className="title title--color"><Skeleton count={1} height="20px" borderRadius="0px" /></h3>
+                            <h3 className="title title--color"><Skeleton count={1} width="50px" height="14px" borderRadius="0px" /></h3>
                             <p className="text text--color"><Skeleton count={1} height="20px" borderRadius="0px" /></p>
-                            <div cclassName="detail">
+                            <div className="detail">
                                 <Skeleton count={1} height="20px" borderRadius="0px" />
                             </div>
                         </Col>
@@ -243,10 +243,10 @@ const SkeletonComponent = () => {
                 <Card.Body>
                     <Row>
                         <Col className="card__item-caption">
-                            <h3 lassName="title title--color"><Skeleton count={1} height="20px" borderRadius="0px" /></h3>
-                            <h3 lassName="title title--color"><Skeleton count={1} width="50px" height="14px" borderRadius="0px" /></h3>
+                            <h3 className="title title--color"><Skeleton count={1} height="20px" borderRadius="0px" /></h3>
+                            <h3 className="title title--color"><Skeleton count={1} width="50px" height="14px" borderRadius="0px" /></h3>
                             <p className="text text--color"><Skeleton count={1} height="20px" borderRadius="0px" /></p>
-                            <div cclassName="detail">
+                            <div className="detail">
                                 <Skeleton count={1} height="20px" borderRadius="0px" />
                             </div>
                         </Col>

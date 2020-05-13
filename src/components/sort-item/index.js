@@ -10,10 +10,14 @@ import './style.scss';
 
 const SortItemComponent = (props) => {
 
-    const {sortField} = props;
+    const { sortField,selectSortOption } = props;
 
     const label = data && data.sortedBy,
         sort = data && data.sort;
+
+    const getSelectSortOption = (option) => {
+        selectSortOption(option)
+    }
 
     return (
         <Row className="sort__content">
@@ -21,14 +25,15 @@ const SortItemComponent = (props) => {
                 <LabelComponent text={label} theme={'default'} />
             </Col>
             <Col lg={6}>
-                <SelectComponent theme={'light'} data={sort} onSelectedValue={sortField} />
+                <SelectComponent theme={'light'} data={sort} onSelectedValue={sortField} selectOption={getSelectSortOption} />
             </Col>
         </Row>
     );
 }
 
 SortItemComponent.propTypes = {
-    sortField: PropTypes.string.isRequired,
+    sortField: PropTypes.string,
+    selectSortOption: PropTypes.func,
 }
 
 export default SortItemComponent;
