@@ -6,15 +6,14 @@ import Container from 'react-bootstrap/Container';
 import CourseItemComponent from '../course-item';
 import FilterComponent from '../filter';
 import SortItemComponent from '../sort-item';
-import SkeletonComponent from './../shared/skeleton'
+import SkeletonComponent from './../shared/skeleton';
+import PaginationComponent from './../shared/pagination';
 
 import './style.scss';
 
 const CourseListComponent = (props) => {
 
-    const { courseList, sortField, selectSortOption } = props;
-
-    let featureList, defaultList;
+    const { courseList, featureList, sortField, selectSortOption, pageIndex, nextPageItems, previousPageItems } = props;
 
     const getindexPagination = (list) => {
         if (list) {
@@ -22,20 +21,16 @@ const CourseListComponent = (props) => {
         }
     }
 
-    const getDataCourses = (list) => {
-
-        if (list) {
-            featureList = list.featured;
-            defaultList = list.items;
-
-            return true;
-        } else {
-            return false;
-        }
-    }
-
     const getSelectSortOption = (option) => {
         selectSortOption(option)
+    }
+
+    const getNextPage = (size) => {
+        nextPageItems(size);
+    }
+
+    const getPreviousPage = (size) => {
+        previousPageItems(size);
     }
 
     return (
@@ -49,17 +44,18 @@ const CourseListComponent = (props) => {
                             </Col>
                             <Col xs={12} sm={12} md={12} lg={9} className="courses__content">
                                 <Row className="courses__content-sort">
-                                    <Col><h6>Page 1 of {getindexPagination(courseList)} results</h6></Col>
+                                    <Col><h6>Page {pageIndex} of {getindexPagination(courseList)} results</h6></Col>
                                     <Col>
                                         <SortItemComponent sortField={sortField} selectSortOption={getSelectSortOption} />
                                     </Col>
                                 </Row>
                                 <div>
                                     {
-                                        getDataCourses(courseList) ?
+                                        courseList && featureList ?
                                             <React.Fragment>
                                                 <CourseItemComponent courseList={featureList} />
-                                                <CourseItemComponent courseList={defaultList} />
+                                                <CourseItemComponent courseList={courseList.items} />
+                                                <PaginationComponent pageIndex={pageIndex} previousPageItems={getPreviousPage} nextPageItems={getNextPage} />
                                             </React.Fragment> :
                                             <SkeletonComponent />
                                     }
@@ -75,8 +71,12 @@ const CourseListComponent = (props) => {
 
 CourseListComponent.propTypes = {
     courseList: PropTypes.any,
+    featureList: PropTypes.any,
     sortField: PropTypes.string,
     selectSortOption: PropTypes.func,
+    pageIndex: PropTypes.number,
+    previousPageItems: PropTypes.func,
+    nextPageItems: PropTypes.func,
 }
 
 export default CourseListComponent;
