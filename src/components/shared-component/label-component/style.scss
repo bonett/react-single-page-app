@@ -6,6 +6,18 @@ label {
         font-size: 1.3em !important;
     }
 
+    @media (min-width: 990px) and (max-width: 1200px) {
+        &.dark {
+            font-size: 1em !important;
+        }
+    }
+
+    @media (min-width: 768px) and (max-width: 990px) {
+        &.dark {
+            font-size: 1.2em !important;
+        }
+    }
+
     &.default {
         color: $gray-contrast-1;
     }

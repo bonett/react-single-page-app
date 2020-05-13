@@ -8,6 +8,12 @@
         font-size: 1.6em !important;
         height: 52px !important;
     }
+
+    @media (min-width: 990px) and (max-width: 1200px) {
+        select {
+            font-size: 1.3em !important;
+        }
+    }
 }
 
 .light {

@@ -48,11 +48,11 @@ class BrowseCourses extends Component {
 
   render() {
 
-    const { courseList } = this.state;
+    const { courseList, state, profession } = this.state;
 
     return (
       <React.Fragment>
-        <HeaderContent />
+        <HeaderContent state={state} profession={profession} />
         <WrapperContent courseList={courseList} />
       </React.Fragment>
     )
