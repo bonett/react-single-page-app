@@ -46,13 +46,13 @@ const CourseItemComponent = (props) => {
     return (
         <React.Fragment>
             {
-                courseList.items.map((item, index) => {
+                courseList.map((item, index) => {
                     return (
                         <Card className="card__item" key={index}>
                             <Card.Body>
                                 <Row>
                                     {
-                                        item.course.featuredBanner ?
+                                        item.isFeatured ?
                                             <Col xs={4} className="card__item-image">
                                                 <Image src={getImageCourse(item)} fluid className="card__item-image--size" />
                                             </Col> :
@@ -60,7 +60,10 @@ const CourseItemComponent = (props) => {
                                     }
                                     <Col className="card__item-caption">
                                         <h3 className="card__item-caption--title">{item.course.name}</h3>
-                                        <small className="card__item-caption--featured">FEATURED</small>
+                                        {
+                                            item.isFeatured ? <small className="card__item-caption--featured">FEATURED</small> : null
+                                        }
+
                                         <p className="card__item-caption--description">{getProviderName(item.course)}</p>
                                         <div className="card__item-caption-extra">
                                             <h4><i className="fa fa-clock-o"></i> {getTotalHourProfession(item.course)}</h4>

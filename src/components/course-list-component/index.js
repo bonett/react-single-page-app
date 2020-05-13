@@ -12,6 +12,9 @@ const CourseListComponent = (props) => {
 
     const { courseList } = props;
 
+    const featureList = courseList.featured,
+            defaultList = courseList.items;
+
     return (
         <div className="courses">
             <Container>
@@ -31,8 +34,11 @@ const CourseListComponent = (props) => {
                                     </Col>
                                 </Row>
                                 <Row>
+                                <Col sm={12}>
+                                        <CourseItemComponent courseList={featureList}/>
+                                    </Col>
                                     <Col sm={12}>
-                                        <CourseItemComponent courseList={courseList}/>
+                                        <CourseItemComponent courseList={defaultList}/>
                                     </Col>
                                 </Row>
                             </Col>
