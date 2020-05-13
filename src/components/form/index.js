@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
-import InputComponent from '../shared-component/input-component';
-import SelectComponent from '../shared-component/select-component';
-import LabelComponent from '../shared-component/label-component';
+import InputComponent from '../shared/input';
+import SelectComponent from '../shared/select';
+import LabelComponent from '../shared/label';
 
 import data from './../../static';
 

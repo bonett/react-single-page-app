@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import BrowseCourses from './browse-courses';
-import NavigationComponent from '../components/navigation-component';
+import NavigationComponent from '../components/navigation';
 import NoMatch from './no-match';
 
 import data from './../static';

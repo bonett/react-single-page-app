@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import HeaderContent from '../../components/header-component';
-import WrapperContent from '../../components/wrapper-content';
+import HeaderComponent from '../../components/header';
+import WrapperComponent from '../../components/wrapper';
 import _ from "lodash";
 
 class BrowseCourses extends Component {
@@ -48,12 +48,12 @@ class BrowseCourses extends Component {
 
   render() {
 
-    const { courseList, state, profession } = this.state;
+    const { courseList, state, profession, sortField } = this.state;
 
     return (
       <React.Fragment>
-        <HeaderContent state={state} profession={profession} />
-        <WrapperContent courseList={courseList} />
+        <HeaderComponent state={state} profession={profession} sortField={sortField} />
+        <WrapperComponent courseList={courseList} />
       </React.Fragment>
     )
   }

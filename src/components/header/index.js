@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import FormContent from "../form-component";
+import FormContent from "../form";
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
 import './style.scss';
 
-const HeaderContent = (props) => {
+const HeaderComponent = (props) => {
 
     const { state, profession } = props;
 
@@ -23,9 +23,9 @@ const HeaderContent = (props) => {
     );
 }
 
-HeaderContent.propTypes = {
+HeaderComponent.propTypes = {
     state: PropTypes.string.isRequired,
     profession: PropTypes.number.isRequired,
 }
 
-export default HeaderContent;
+export default HeaderComponent;

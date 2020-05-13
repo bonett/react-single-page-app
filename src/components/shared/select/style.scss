@@ -22,4 +22,22 @@
         border-color: $gray-contrast-4 !important;
         color: $gray-contrast-1 !important;
     }
+
+    @media (min-width: 990px) and (max-width: 1200px) {
+        select {
+            font-size: 0.9em !important;
+        }
+    }
+
+    @media (max-width: 768px) {
+        select {
+            font-size: 0.8em !important;
+        }
+    }
+
+    @media (max-width: 578px) {
+        select {
+            font-size: 1em !important;
+        }
+    }
 }

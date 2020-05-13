@@ -1,0 +1,29 @@
+@import "./../../themes/variables.scss";
+
+
+.courses {
+    padding: 60px 20px;
+    
+    &__content {
+        background-color: $white !important;
+        border-radius: 0px !important;
+        padding: 20px;
+
+        &-sort {
+            align-items: center;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            padding: 0 0 10px 0;
+        }
+
+        .page {
+            &-indicator {
+                align-items: center;
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-start;
+            }
+        }
+    }
+}
