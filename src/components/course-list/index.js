@@ -12,7 +12,7 @@ import './style.scss';
 
 const CourseListComponent = (props) => {
 
-    const { courseList } = props;
+    const { courseList, sortField } = props;
 
     let featureList, defaultList;
 
@@ -38,32 +38,28 @@ const CourseListComponent = (props) => {
         <div className="courses">
             <Container>
                 <Row>
-                    <Col md={{ span: 12, offset: 0 }} lg={{ span: 10, offset: 1 }}>
+                    <Col xs={{ span: 12, offset: 0 }} sm={{ span: 12, offset: 0 }} md={{ span: 12, offset: 0 }} lg={{ span: 10, offset: 1 }}>
                         <Row>
-                            <Col sm={12} md={12} lg={3} className="courses__filter">
+                            <Col xs={12} sm={12} md={12} lg={3} className="courses__filter">
                                 <FilterComponent />
                             </Col>
-                            <Col sm={12} md={12} lg={9} className="courses__content">
-                                <Row>
-                                    <Col sm={7}>
-                                        <h6>Page 1 of {getindexPagination(courseList)} results</h6>
-                                    </Col>
-                                    <Col sm={5}>
-                                        <SortItemComponent />
+                            <Col xs={12} sm={12} md={12} lg={9} className="courses__content">
+                                <Row className="courses__content-sort">
+                                    <Col><h6>Page 1 of {getindexPagination(courseList)} results</h6></Col>
+                                    <Col>
+                                        <SortItemComponent sortField={sortField} />
                                     </Col>
                                 </Row>
-                                <Row>
-                                    <Col sm={12}>
-                                        {
-                                            getDataCourses(courseList) ?
-                                                <React.Fragment>
-                                                    <CourseItemComponent courseList={featureList} />
-                                                    <CourseItemComponent courseList={defaultList} />
-                                                </React.Fragment> :
-                                                <SkeletonComponent />
-                                        }
-                                    </Col>
-                                </Row>
+                                <div>
+                                    {
+                                        getDataCourses(courseList) ?
+                                            <React.Fragment>
+                                                <CourseItemComponent courseList={featureList} />
+                                                <CourseItemComponent courseList={defaultList} />
+                                            </React.Fragment> :
+                                            <SkeletonComponent />
+                                    }
+                                </div>
                             </Col>
                         </Row>
                     </Col>
@@ -75,6 +71,7 @@ const CourseListComponent = (props) => {
 
 CourseListComponent.propTypes = {
     courseList: PropTypes.object.isRequired,
+    sortField: PropTypes.string.isRequired,
 }
 
 export default CourseListComponent;

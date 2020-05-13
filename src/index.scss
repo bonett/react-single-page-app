@@ -49,6 +49,12 @@ body {
       padding: 0px 10px;
     }
 
+    @media (max-width: 768px) {
+      &-media {
+        margin-bottom: 24px;
+      }
+    }
+
     &-caption {
       align-items: flex-start;
       display: flex;
@@ -95,6 +101,12 @@ body {
             color: $gray-contrast-1;
           }
         }
+
+        @media (max-width: 768px) {
+          &-course {
+            font-size: 0.6em;
+          }
+        }
       }
     }
 
@@ -103,6 +115,7 @@ body {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      padding: 0;
 
       .text {
         font-size: 1.2em;
@@ -110,6 +123,18 @@ body {
 
         &--color {
           color: $dark;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .text {
+          font-size: 1em;
+        }
+      }
+
+      @media (max-width: 558px) {
+        .text {
+          font-size: 0.8em;
         }
       }
 

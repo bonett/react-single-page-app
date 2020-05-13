@@ -8,25 +8,27 @@ import data from './../../static';
 
 import './style.scss';
 
-const SortItemComponent = () => {
+const SortItemComponent = (props) => {
+
+    const {sortField} = props;
 
     const label = data && data.sortedBy,
         sort = data && data.sort;
 
     return (
-        <Row>
-            <Col sm={6}>
+        <Row className="sort__content">
+            <Col lg={6} className="sort__content-text">
                 <LabelComponent text={label} theme={'default'} />
             </Col>
-            <Col sm={6}>
-                <SelectComponent theme={'light'} data={sort} onSelectedValue={'RELEVANCE'} />
+            <Col lg={6}>
+                <SelectComponent theme={'light'} data={sort} onSelectedValue={sortField} />
             </Col>
         </Row>
     );
 }
 
 SortItemComponent.propTypes = {
-    
+    sortField: PropTypes.string.isRequired,
 }
 
 export default SortItemComponent;

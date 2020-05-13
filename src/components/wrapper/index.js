@@ -8,12 +8,12 @@ import './style.scss';
 
 const WrapperComponent = (props) => {
 
-    const { courseList } = props;
+    const { courseList, sortField } = props;
 
     return (
         <Tabs defaultActiveKey="courses" id="uncontrolled-tab-example">
             <Tab eventKey="courses" title="COURSES"> 
-                <CourseListComponent courseList={courseList} />
+                <CourseListComponent courseList={courseList} sortField={sortField} />
             </Tab>
             <Tab eventKey="providers" title="PROVIDERS" disabled>
                 Providers
@@ -24,6 +24,7 @@ const WrapperComponent = (props) => {
 
 WrapperComponent.propTypes = {
     courseList: PropTypes.object,
+    sortField: PropTypes.string.isRequired,
 }
 
 

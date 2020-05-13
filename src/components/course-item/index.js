@@ -45,47 +45,49 @@ const CourseItemComponent = (props) => {
     const { courseList } = props;
 
     return (
-        <React.Fragment>
-            {
-                courseList.map((item, index) => {
-                    return (
-                        <Card className="card__item" key={index}>
-                            <Card.Body>
-                                <Row>
-                                    {
-                                        item.isFeatured ?
-                                            <Col xs={4} className="card__item-media">
-                                                <ImageComponent image={getImageCourse(item)} />
-                                            </Col> :
-                                            null
-                                    }
-                                    <Col className="card__item-caption">
-                                        <h3 className="title title--color">{item.course.name}</h3>
+        <Row>
+            <Col sm={12}>
+                {
+                    courseList.map((item, index) => {
+                        return (
+                            <Card className="card__item" key={index}>
+                                <Card.Body>
+                                    <Row>
                                         {
-                                            item.isFeatured ? <SmallComponent text={'FEATURED'} /> : null
+                                            item.isFeatured ?
+                                                <Col xs={12} sm={12} md={12} lg={4} className="card__item-media">
+                                                    <ImageComponent image={getImageCourse(item)} />
+                                                </Col> :
+                                                null
                                         }
-
-                                        <p className="text text--color">{getProviderName(item.course)}</p>
-                                        <div className="detail">
-                                            <h4 className="detail-course detail-course--color"><IconComponent iconName={'clock-o'} /> {getTotalHourProfession(item.course)}</h4>
-                                            <h4 className="detail-course detail-course--color"><IconComponent iconName={'laptop'} />{getDeliveryMethod(item.course)}</h4>
-                                        </div>
-                                    </Col>
-                                    <Col xs={2} className="card__item-share">
-                                        <h2 className="text text--color">
+                                        <Col className="card__item-caption">
+                                            <h3 className="title title--color">{item.course.name}</h3>
                                             {
-                                                item.isFree ? 'Free' : `$ ${item.price}`
+                                                item.isFeatured ? <SmallComponent text={'FEATURED'} /> : null
                                             }
-                                        </h2>
-                                        <button onClick={(() => window.open(item.course.registrationWebsite))} className="share-button share-button--color"><i className="fa fa-share"></i></button>
-                                    </Col>
-                                </Row>
-                            </Card.Body>
-                        </Card>
-                    )
-                })
-            }
-        </React.Fragment>
+
+                                            <p className="text text--color">{getProviderName(item.course)}</p>
+                                            <div className="detail">
+                                                <h4 className="detail-course detail-course--color"><IconComponent iconName={'clock-o'} /> {getTotalHourProfession(item.course)}</h4>
+                                                <h4 className="detail-course detail-course--color"><IconComponent iconName={'laptop'} />{getDeliveryMethod(item.course)}</h4>
+                                            </div>
+                                        </Col>
+                                        <Col xs={2} sm={2} md={2} lg={2} className="card__item-share">
+                                            <h2 className="text text--color">
+                                                {
+                                                    item.isFree ? 'Free' : `$ ${item.price}`
+                                                }
+                                            </h2>
+                                            <button onClick={(() => window.open(item.course.registrationWebsite))} className="share-button share-button--color"><i className="fa fa-share"></i></button>
+                                        </Col>
+                                    </Row>
+                                </Card.Body>
+                            </Card>
+                        )
+                    })
+                }
+            </Col>
+        </Row>
     );
 }
 
