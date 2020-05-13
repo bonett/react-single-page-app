@@ -1,19 +1,11 @@
 @import "./../../themes/variables.scss";
 
-form {
-
-    .input {
-        &-group {
-            &-text {
-                background-color: $white !important;
-                border-top: 1px solid $gray-contrast-4;
-                border-left: 1px solid $gray-contrast-4;
-                border-bottom: 1px solid $gray-contrast-4;
-            }
-        }
-    }
-    label {
-        color: $white;
-        font-size: 1.5em !important;
+.form {
+    &__choose {
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        margin: 0.6rem 0;
     }
 }

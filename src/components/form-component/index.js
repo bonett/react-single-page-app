@@ -4,33 +4,38 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import InputComponent from '../shared-component/input-component';
 import SelectComponent from '../shared-component/select-component';
+import LabelComponent from '../shared-component/label-component';
+
+import data from './../../static';
 
 import './style.scss';
 
 const FormContent = () => {
+
+    const label = data && data.findCE,
+        states = data && data.states,
+        roles = data && data.roles;
+
+
     return (
-        <Form>
+        <Form className="form">
             <Row>
                 <Col md={{ span: 12, offset: 0 }} lg={{ span: 8, offset: 2 }}>
-                    <Form.Group as={Row} controlId="formPlaintextEmail">
-                        <Form.Label column sm="4">
-                            Find CE for a
-                        </Form.Label>
+                    <Form.Group as={Row} controlId="formPlaintextEmail" className="form__choose">
                         <Col sm="3">
-                            <Form.Group controlId="exampleForm.ControlSelect1">
-                                <SelectComponent />
-                            </Form.Group>
+                            <LabelComponent text={label} />
+                        </Col>
+                        <Col sm="4">
+                            <SelectComponent theme={'dark'} data={states} />
                         </Col>
                         <Col sm="5">
-                            <Form.Group controlId="exampleForm.ControlSelect2">
-                                <SelectComponent />
-                            </Form.Group>
+                            <SelectComponent theme={'dark'} data={roles} />
                         </Col>
                     </Form.Group>
                 </Col>
             </Row>
             <Row>
-                <Col md={{ span: 12, offset: 0 }} lg={{ span: 10, offset: 1 }}>
+                <Col md={{ span: 12, offset: 0 }} lg={{ span: 10, offset: 1 }} className="form__search">
                     <Form.Group as={Row} controlId="formPlaintextEmail">
                         <Form.Label column sm="12">
                             <InputComponent />
