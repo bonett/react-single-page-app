@@ -9,7 +9,7 @@
         padding: 10px !important;
         margin-bottom: 14px;
 
-        &-image {
+        &-media {
             align-items: center;
             display: flex;
             flex-direction: column;
@@ -45,14 +45,14 @@
             }
 
             &-extra {
+                align-items: center;
                 display: flex;
                 flex-direction: row;
                 justify-content: center;
-                align-items: center;
 
                 h4 {
-                    font-size: 0.8em;
                     color: $gray-contrast-1;
+                    font-size: 0.8em;
                     margin-right: 10px;
 
                     i {
@@ -63,10 +63,10 @@
         }
 
         &-feed {
+            align-items: center;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            align-items: center;
 
             &--prize {
                 font-size: 1.2em;
@@ -76,6 +76,7 @@
             &--share {
                 border: 1px solid $gray-contrast-3;
                 border-radius: 2px;
+                color: $gray-contrast-1 !important;
                 font-size: 1.2em;
                 padding: 4px 14px;
             }

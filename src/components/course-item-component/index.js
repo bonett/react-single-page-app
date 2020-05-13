@@ -53,8 +53,8 @@ const CourseItemComponent = (props) => {
                                 <Row>
                                     {
                                         item.isFeatured ?
-                                            <Col xs={4} className="card__item-image">
-                                                <Image src={getImageCourse(item)} fluid className="card__item-image--size" />
+                                            <Col xs={4} className="card__item-media">
+                                                <Image src={getImageCourse(item)} fluid />
                                             </Col> :
                                             null
                                     }

@@ -15,7 +15,7 @@ const WrapperContent = (props) => {
             <Tab eventKey="courses" title="COURSES">
                 <CourseListComponent courseList={courseList} />
             </Tab>
-            <Tab eventKey="providers" title="PROVIDERS">
+            <Tab eventKey="providers" title="PROVIDERS" disabled>
                 Providers
             </Tab>
         </Tabs>

@@ -1,0 +1,9 @@
+@import "./../../../themes/variables.scss";
+
+select {
+    background-color: $blue-contrast-1 !important;
+    border-color: $white !important;
+    color: $white !important;
+    font-size: 1.6em !important;
+    height: 52px !important;
+}
