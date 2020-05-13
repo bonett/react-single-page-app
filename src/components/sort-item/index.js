@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
-import SelectComponent from './../shared-component/select-component';
-import LabelComponent from './../shared-component/label-component';
+import SelectComponent from '../shared/select';
+import LabelComponent from '../shared/label';
 import data from './../../static';
 
 import './style.scss';

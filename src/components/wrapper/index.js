@@ -2,12 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Tabs from 'react-bootstrap/Tabs';
 import Tab from 'react-bootstrap/Tab';
-import CourseListComponent from '../course-list-component';
-
+import CourseListComponent from '../course-list';
+import SpinnerComponent from '../shared/spinner';
 import './style.scss';
-import SpinnerComponent from '../shared-component/spinner-component';
 
-const WrapperContent = (props) => {
+const WrapperComponent = (props) => {
 
     const { courseList } = props;
 
@@ -25,9 +24,9 @@ const WrapperContent = (props) => {
     );
 }
 
-WrapperContent.propTypes = {
+WrapperComponent.propTypes = {
     courseList: PropTypes.object,
 }
 
 
-export default WrapperContent;
+export default WrapperComponent;

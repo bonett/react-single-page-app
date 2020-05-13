@@ -2,15 +2,15 @@ import React from 'react';
 import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
-import Image from 'react-bootstrap/Image';
 
 import './style.scss';
+import ImageComponent from '../shared/image';
 
 const getTotalHourProfession = (course) => {
     let hours = 0;
     const components = course && course.components;
 
-    components.forEach( component => {
+    components.forEach(component => {
         const profession = component.profession;
         hours += profession.totalHours;
     });
@@ -54,7 +54,7 @@ const CourseItemComponent = (props) => {
                                     {
                                         item.isFeatured ?
                                             <Col xs={4} className="card__item-media">
-                                                <Image src={getImageCourse(item)} fluid />
+                                                <ImageComponent image={getImageCourse(item)} />
                                             </Col> :
                                             null
                                     }

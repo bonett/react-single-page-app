@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
-import CourseItemComponent from '../course-item-component';
-import FilterComponent from './../filter-component';
-import SortItemComponent from '../sort-item-component';
+import CourseItemComponent from '../course-item';
+import FilterComponent from '../filter';
+import SortItemComponent from '../sort-item';
 
 import './style.scss';
 
