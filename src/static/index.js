@@ -39,6 +39,12 @@ export default {
             "value": "36"
         },
     ],
+    sort: [
+        {
+            "name": "Relevance",
+            "value": "RELEVANCE"
+        }
+    ],
     states: [
         {
             "name": "Alabama",

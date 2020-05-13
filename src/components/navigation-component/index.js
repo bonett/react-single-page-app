@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import Navbar from 'react-bootstrap/Navbar';
 import NavItemComponent from '../navigation-item-component';
 import Container from 'react-bootstrap/Container';
-import LogoComponent from '../shared/logo-component';
-import ButtonComponent from '../shared/button-component';
+import LogoComponent from './../shared-component/logo-component';
+import ButtonComponent from './../shared-component/button-component';
 
 import './style.scss';
 

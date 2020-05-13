@@ -6,7 +6,7 @@ import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import './style.scss';
 
-function FilterContent() {
+function FilterComponent() {
     return (
         <Row>
             <Col sm={12}>
@@ -92,4 +92,4 @@ function FilterContent() {
     );
 }
 
-export default FilterContent;
+export default FilterComponent;
