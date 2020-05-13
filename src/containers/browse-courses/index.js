@@ -9,6 +9,7 @@ class BrowseCourses extends Component {
 
     this.state = {
       courseList: null,
+      featureList: null,
       state: 'FL',
       sortField: 'RELEVANCE',
       profession: "36",
@@ -20,6 +21,7 @@ class BrowseCourses extends Component {
 
   componentDidMount() {
     this.getCourseFeatured();
+    this.getCourses()
   }
 
   getCourseFeatured() {
@@ -28,12 +30,13 @@ class BrowseCourses extends Component {
     fetch(`https://api.courses.test.cebroker.com/offerings?expand=totalItems&pageIndex=${pageIndex}&pageSize=${PageSize}&sortField=${sortField}&profession=${profession}&courseType=${courseType}&isFeatured=true`).then(resolve => {
       return resolve.json();
     }).then(data => {
-      const featureList = _.map(data.items, o => _.extend({ isFeatured: true }, o));
-      this.getCourses(featureList);
+      this.setState({
+        featureList: _.map(data.items, o => _.extend({ isFeatured: true }, o))
+      })
     });
   }
 
-  getCourses(featureList) {
+  getCourses() {
 
     const { pageIndex, PageSize, sortField, profession, courseType, state } = this.state;
 
@@ -43,7 +46,7 @@ class BrowseCourses extends Component {
       return resolve.json();
     }).then(data => {
       this.setState({
-        courseList: _.merge(data, { featured: featureList })
+        courseList: data
       });
     });
   }
@@ -53,7 +56,7 @@ class BrowseCourses extends Component {
       state: option
     });
 
-    this.getCourseFeatured();
+    this.getCourses();
   }
 
   getSelectMedicalOption = (option) => {
@@ -61,7 +64,7 @@ class BrowseCourses extends Component {
       profession: option
     });
 
-    this.getCourseFeatured();
+    this.getCourses();
   }
 
   getSelectSortOption = (option) => {
@@ -69,17 +72,39 @@ class BrowseCourses extends Component {
       sortField: option
     });
 
-    this.getCourseFeatured();
+    this.getCourses();
+  }
+
+  getNextPage = (size) => {
+
+    const { pageIndex } = this.state;
+
+    this.setState({
+      pageIndex: pageIndex + size
+    });
+
+    this.getCourses();
+  }
+
+  getPreviousPage = (size) => {
+
+    const { pageIndex } = this.state;
+
+    this.setState({
+      pageIndex: pageIndex - size
+    });
+
+    this.getCourses();
   }
 
   render() {
 
-    const { courseList, state, profession, sortField } = this.state;
+    const { courseList, state, profession, sortField, pageIndex, featureList } = this.state;
 
     return (
       <React.Fragment>
         <HeaderComponent state={state} profession={profession} sortField={sortField} selectStateOption={this.getSelectStateOption} selectMedicalOption={this.getSelectMedicalOption} />
-        <WrapperComponent courseList={courseList} selectSortOption={this.getSelectSortOption} />
+        <WrapperComponent courseList={courseList} featureList={featureList} selectSortOption={this.getSelectSortOption} pageIndex={pageIndex} previousPageItems={this.getPreviousPage} nextPageItems={this.getNextPage} />
       </React.Fragment>
     )
   }
