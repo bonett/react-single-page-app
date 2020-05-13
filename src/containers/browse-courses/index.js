@@ -16,10 +16,10 @@ class BrowseCourses extends Component {
     fetch('https://api.courses.test.cebroker.com/offerings?expand=totalItems&pageIndex=1&pageSize=10&sortField=RELEVANCE&state=FL&profession=36&courseType=CD_ANYTIME').then(resolve => {
       return resolve.json();
     }).then(data => {
-        this.setState({
-          courses: data
-        })
-      });
+      this.setState({
+        courses: data
+      })
+    });
   }
 
   render() {
