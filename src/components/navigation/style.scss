@@ -1,10 +1,14 @@
 @import "./../../themes/variables.scss";
 
 .navbar {
-    background-color: $white !important;
-    height: 80px !important;
-    
     &__content {
+        background-color: $white !important;
+        height: 80px !important;
+    }
 
+    @media (max-width: 990px) {
+        &__content {
+            height: auto !important;
+        }
     }
 }

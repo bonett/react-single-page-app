@@ -5,3 +5,9 @@ header {
     height: 200px;
     padding: 30px;
 }
+
+@media (max-width: 576px) {
+    header {
+        height: 320px;
+    }
+}
