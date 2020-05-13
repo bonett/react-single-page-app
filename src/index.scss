@@ -1,0 +1,34 @@
+@import "./../node_modules/bootstrap/dist/css/bootstrap.min.css";
+@import "./themes/variables.scss";
+
+body {
+  background-color: $background-body;
+  font-family: $font-family;
+}
+
+* {
+  outline: none;
+}
+
+.btn {
+  border-radius: 0 !important;
+  border: 1px solid $gray-contrast-1;
+  
+  &-outline {
+    &-success {
+      color: $gray-contrast-1;
+      margin: 0 12px;
+
+      &:hover {
+        background-color: $white;
+        border: 1px solid $gray-contrast-1;
+        color: $gray-contrast-1;
+      }
+    }
+  }
+
+  &-success {
+    border: 1px solid $green !important;
+    background-color: $green !important;
+  }
+}

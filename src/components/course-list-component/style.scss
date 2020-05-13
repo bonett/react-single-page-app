@@ -1,0 +1,13 @@
+@import "./../../themes/variables.scss";
+
+
+.courses {
+    padding: 60px 0;
+    
+    &__content {
+        background-color: $white;
+        border-radius: 0px !important;
+        border: 1px solid $gray-contrast-4;
+        padding: 40px 20px;
+    }
+}

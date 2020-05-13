@@ -1,0 +1,40 @@
+@import "./../../../themes/variables.scss";
+
+.input {
+    &-group {
+        &-text {
+            background-color: $white !important;
+            border-top: 1px solid $gray-contrast-4;
+            border-left: 1px solid $gray-contrast-4;
+            border-bottom: 1px solid $gray-contrast-4;
+            margin-top: 2px;
+        }
+    }
+}
+
+input {
+    background-color: $white !important;
+    border-left: 1px solid $white !important;
+    height: 52px !important;
+    margin-top: 2px;
+}
+
+::-webkit-input-placeholder {
+    color: $gray-contrast-3 !important;
+    font-size: 1.2em;
+}
+
+::-moz-placeholder {
+    color: $gray-contrast-3 !important;
+    font-size: 1.2em;
+}
+
+:-ms-input-placeholder {
+    color: $gray-contrast-3 !important;
+    font-size: 1.2em;
+}
+
+:-moz-placeholder {
+    color: $gray-contrast-3 !important;
+    font-size: 1.2em;
+}

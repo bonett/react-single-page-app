@@ -1,0 +1,29 @@
+@import "./../../themes/variables.scss";
+
+.navbar {
+    &__item {
+        &-link {
+            color: $gray-contrast-1 !important;
+            margin-right: 1em;
+            text-transform: capitalize;
+
+            &:hover {
+                border: none !important;
+                color: $green !important;
+            }
+        }
+
+        .dropdown {
+            a {
+                color: $gray-contrast-1 !important;
+                margin-right: 1em;
+                text-transform: capitalize;
+
+                &:hover {
+                    border: none !important;
+                    color: $green !important;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,11 @@
+@import "./../../themes/variables.scss";
+
+.form {
+    &__choose {
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        margin: 0.6rem 0;
+    }
+}
