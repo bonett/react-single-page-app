@@ -1,4 +1,6 @@
 export default {
+    findCE: "Find CE for a",
+    sortedBy: "Sorted by: ",
     navbarItem: [
         {
             path: "/features",
@@ -32,7 +34,6 @@ export default {
             name: "Support"
         },
     ],
-    findCE: "Find CE for a",
     roles: [
         {
             "name": "Medical Doctor",

@@ -23,13 +23,13 @@ const FormContent = () => {
                 <Col md={{ span: 12, offset: 0 }} lg={{ span: 8, offset: 2 }}>
                     <Form.Group as={Row} controlId="formPlaintextEmail" className="form__choose">
                         <Col sm="3">
-                            <LabelComponent text={label} />
+                            <LabelComponent text={label} theme={'dark'} />
                         </Col>
                         <Col sm="4">
-                            <SelectComponent theme={'dark'} data={states} />
+                            <SelectComponent theme={'dark'} data={states} onSelectedValue={'FL'}/>
                         </Col>
                         <Col sm="5">
-                            <SelectComponent theme={'dark'} data={roles} />
+                            <SelectComponent theme={'dark'} data={roles} onSelectedValue={'36'}/>
                         </Col>
                     </Form.Group>
                 </Col>

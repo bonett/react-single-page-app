@@ -1,6 +1,12 @@
 @import "./../../../themes/variables.scss";
 
 label {
-    color: $white;
-    font-size: 1.3em !important;
+    &.dark {
+        color: $white;
+        font-size: 1.3em !important;
+    }
+
+    &.default {
+        color: $gray-contrast-1;
+    }
 }

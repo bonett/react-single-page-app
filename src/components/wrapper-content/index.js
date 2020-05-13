@@ -5,6 +5,7 @@ import Tab from 'react-bootstrap/Tab';
 import CourseListComponent from '../course-list-component';
 
 import './style.scss';
+import SpinnerComponent from '../shared-component/spinner-component';
 
 const WrapperContent = (props) => {
 
@@ -13,7 +14,9 @@ const WrapperContent = (props) => {
     return (
         <Tabs defaultActiveKey="courses" id="uncontrolled-tab-example">
             <Tab eventKey="courses" title="COURSES">
-                <CourseListComponent courseList={courseList} />
+                {
+                    courseList ? <CourseListComponent courseList={courseList} /> : <SpinnerComponent />
+                }
             </Tab>
             <Tab eventKey="providers" title="PROVIDERS" disabled>
                 Providers
@@ -23,7 +26,7 @@ const WrapperContent = (props) => {
 }
 
 WrapperContent.propTypes = {
-    courseList: PropTypes.object.isRequired,
+    courseList: PropTypes.object,
 }
 
 

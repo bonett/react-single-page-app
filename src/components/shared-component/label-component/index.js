@@ -6,10 +6,10 @@ import './style.scss';
 
 const LabelComponent = (props) => {
 
-    const { text } = props;
+    const { text, theme } = props;
 
     return (
-        <Form.Label>
+        <Form.Label className={theme}>
             {text}
         </Form.Label>
     );
@@ -17,6 +17,7 @@ const LabelComponent = (props) => {
 
 LabelComponent.propTypes = {
     text: PropTypes.string.isRequired,
+    theme: PropTypes.string.isRequired,
 }
 
 export default LabelComponent;

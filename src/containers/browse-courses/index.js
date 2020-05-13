@@ -8,7 +8,13 @@ class BrowseCourses extends Component {
     super();
 
     this.state = {
-      courseList: null
+      courseList: null,
+      state: 'FL',
+      sortField: 'RELEVANCE',
+      profession: 36,
+      courseType: 'CD_ANYTIME',
+      pageIndex: 1,
+      PageSize: 10
     };
   }
 
@@ -17,20 +23,25 @@ class BrowseCourses extends Component {
   }
 
   getCourseFeatured() {
-    fetch('https://api.courses.test.cebroker.com/offerings?expand=totalItems&pageIndex=1&pageSize=7&sortField=RELEVANCE&profession=36&courseType=CD_ANYTIME&isFeatured=true').then(resolve => {
+    const { pageIndex, PageSize, sortField, profession, courseType } = this.state;
+
+    fetch(`https://api.courses.test.cebroker.com/offerings?expand=totalItems&pageIndex=${pageIndex}&pageSize=${PageSize}&sortField=${sortField}&profession=${profession}&courseType=${courseType}&isFeatured=true`).then(resolve => {
       return resolve.json();
     }).then(data => {
-      const featureList = _.map(data.items, o => _.extend({isFeatured: true}, o));
+      const featureList = _.map(data.items, o => _.extend({ isFeatured: true }, o));
       this.getCourses(featureList);
     });
   }
 
   getCourses(featureList) {
-    fetch('https://api.courses.test.cebroker.com/offerings?expand=totalItems&pageIndex=1&pageSize=10&sortField=RELEVANCE&state=FL&profession=36&courseType=CD_ANYTIME').then(resolve => {
+
+    const { pageIndex, PageSize, sortField, profession, courseType } = this.state;
+
+    fetch(`https://api.courses.test.cebroker.com/offerings?expand=totalItems&pageIndex=${pageIndex}&pageSize=${PageSize}&sortField=${sortField}&profession=${profession}&courseType=${courseType}`).then(resolve => {
       return resolve.json();
     }).then(data => {
       this.setState({
-        courseList: _.merge(data, { featured: featureList})
+        courseList: _.merge(data, { featured: featureList })
       })
     });
   }
@@ -42,9 +53,7 @@ class BrowseCourses extends Component {
     return (
       <React.Fragment>
         <HeaderContent />
-        {
-          courseList ? <WrapperContent courseList={courseList} /> : null
-        }
+        <WrapperContent courseList={courseList} />
       </React.Fragment>
     )
   }
