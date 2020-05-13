@@ -4,7 +4,7 @@ import {
 } from "react-router-dom";
 import './style.scss';
 
-function NoMatch() {
+const NoMatch = () => {
     let location = useLocation();
 
     return (

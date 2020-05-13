@@ -19,10 +19,10 @@ const HeaderComponent = (props) => {
     }
 
     return (
-        <header>
+        <header className="header">
             <Container>
                 <Row>
-                    <Col md={{ span: 12, offset: 0 }} lg={{ span: 10, offset: 1 }}>
+                    <Col md={{ span: 12, offset: 0 }} lg={{ span: 10, offset: 1 }} className="header-content">
                         <FormContent state={state} profession={profession} selectStateOption={getSelectStateOption} selectMedicalOption={getSelectMedicalOption} />
                     </Col>
                 </Row>
