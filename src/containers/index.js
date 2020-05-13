@@ -1,20 +1,20 @@
 import React from 'react';
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route
-} from "react-router-dom";
-
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import BrowseCourses from './browse-courses';
-
-import Navigation from '../components/navigation';
+import NavigationComponent from '../components/navigation-component';
 import NoMatch from './no-match';
 
+import data from './../static';
+
 function RouteApp() {
+
+    const navbarItems = data && data.navbarItem,
+        items = navbarItems;
+
     return (
         <Router>
             <React.Fragment>
-                <Navigation />
+                <NavigationComponent items={items} />
                 <Switch>
                     <Route exact path="/" redirect="/browse-courses">
                         <BrowseCourses />

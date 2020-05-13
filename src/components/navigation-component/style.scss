@@ -1,6 +1,11 @@
 @import "./../../themes/variables.scss";
 
 .navbar {
+
+    &-brand {
+        margin-right: 2.4rem !important;
+    }
+
     &__content {
         background-color: $white !important;
         height: 80px !important;
