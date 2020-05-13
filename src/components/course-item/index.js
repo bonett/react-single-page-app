@@ -92,7 +92,7 @@ const CourseItemComponent = (props) => {
 }
 
 CourseItemComponent.propTypes = {
-    courseList: PropTypes.object.isRequired,
+    courseList: PropTypes.array,
 }
 
 export default CourseItemComponent;

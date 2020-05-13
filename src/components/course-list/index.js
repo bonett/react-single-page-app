@@ -70,8 +70,8 @@ const CourseListComponent = (props) => {
 }
 
 CourseListComponent.propTypes = {
-    courseList: PropTypes.object.isRequired,
-    sortField: PropTypes.string.isRequired,
+    courseList: PropTypes.any,
+    sortField: PropTypes.string,
 }
 
 export default CourseListComponent;

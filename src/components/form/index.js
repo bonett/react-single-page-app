@@ -13,11 +13,15 @@ import './style.scss';
 
 const FormContent = (props) => {
 
-    const { state, profession } = props;
+    const { state, profession, selectState } = props;
 
     const label = data && data.findCE,
         states = data && data.states,
         roles = data && data.roles;
+
+    const getSelectOption = (option) => {
+        selectState(option)
+    }
 
 
     return (
@@ -25,14 +29,14 @@ const FormContent = (props) => {
             <Row>
                 <Col md={{ span: 10, offset: 1 }} lg={{ span: 8, offset: 2 }}>
                     <Form.Group as={Row} controlId="formPlaintextEmail" className="form__choose">
-                        <Col sm="12" md="3"  lg="3">
+                        <Col sm="12" md="3" lg="3">
                             <LabelComponent text={label} theme={'dark'} />
                         </Col>
                         <Col sm="12" md="4" lg="4">
-                            <SelectComponent theme={'dark'} data={states} onSelectedValue={state}/>
+                            <SelectComponent theme={'dark'} data={states} onSelectedValue={state} selectOption={getSelectOption} />
                         </Col>
                         <Col sm="12" md="5" lg="5">
-                            <SelectComponent theme={'dark'} data={roles} onSelectedValue={profession}/>
+                            <SelectComponent theme={'dark'} data={roles} onSelectedValue={profession} />
                         </Col>
                     </Form.Group>
                 </Col>
@@ -52,7 +56,8 @@ const FormContent = (props) => {
 
 FormContent.propTypes = {
     state: PropTypes.string.isRequired,
-    profession: PropTypes.number.isRequired,
+    profession: PropTypes.string.isRequired,
+    selectState: PropTypes.func,
 }
 
 export default FormContent;

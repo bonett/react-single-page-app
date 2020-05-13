@@ -24,7 +24,7 @@ const WrapperComponent = (props) => {
 
 WrapperComponent.propTypes = {
     courseList: PropTypes.object,
-    sortField: PropTypes.string.isRequired,
+    sortField: PropTypes.string,
 }
 
 

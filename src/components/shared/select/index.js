@@ -6,11 +6,11 @@ import './style.scss';
 
 const SelectComponent = (props) => {
 
-    const { theme, data, onSelectedValue } = props;
+    const { theme, data, onSelectedValue, selectOption } = props;
 
     return (
         <Form.Group controlId="exampleForm.ControlSelect2" className={theme}>
-            <Form.Control as="select" defaultValue={onSelectedValue}>
+            <Form.Control as="select" value={onSelectedValue} onChange={e => selectOption(e.target.value)}>
                 {
                     data.map((item, index) => {
                         return <option key={index} value={item.value}>{item.name}</option>
@@ -24,7 +24,8 @@ const SelectComponent = (props) => {
 SelectComponent.propTypes = {
     theme: PropTypes.string.isRequired,
     data: PropTypes.array.isRequired,
-    onSelectedValue: PropTypes.string.isRequired,
+    onSelectedValue: PropTypes.string,
+    selectOption: PropTypes.func,
 }
 
 export default SelectComponent;

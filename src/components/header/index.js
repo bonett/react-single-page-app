@@ -8,14 +8,18 @@ import './style.scss';
 
 const HeaderComponent = (props) => {
 
-    const { state, profession } = props;
+    const { state, profession, selectState } = props;
+
+    const getSelectOption = (option) => {
+        selectState(option);
+    }
 
     return (
         <header>
             <Container>
                 <Row>
                     <Col md={{ span: 12, offset: 0 }} lg={{ span: 10, offset: 1 }}>
-                        <FormContent state={state} profession={profession} />
+                        <FormContent state={state} profession={profession} selectState={getSelectOption}/>
                     </Col>
                 </Row>
             </Container>
@@ -25,7 +29,8 @@ const HeaderComponent = (props) => {
 
 HeaderComponent.propTypes = {
     state: PropTypes.string.isRequired,
-    profession: PropTypes.number.isRequired,
+    profession: PropTypes.string.isRequired,
+    selectState: PropTypes.func,
 }
 
 export default HeaderComponent;

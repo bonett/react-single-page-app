@@ -28,7 +28,7 @@ const SortItemComponent = (props) => {
 }
 
 SortItemComponent.propTypes = {
-    sortField: PropTypes.string.isRequired,
+    sortField: PropTypes.string,
 }
 
 export default SortItemComponent;
