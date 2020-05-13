@@ -48,9 +48,25 @@ class BrowseCourses extends Component {
     });
   }
 
-  getSelectedState = (option) => {
+  getSelectStateOption = (option) => {
     this.setState({
       state: option
+    });
+
+    this.getCourseFeatured();
+  }
+
+  getSelectMedicalOption = (option) => {
+    this.setState({
+      profession: option
+    });
+
+    this.getCourseFeatured();
+  }
+
+  getSelectSortOption = (option) => {
+    this.setState({
+      sortField: option
     });
 
     this.getCourseFeatured();
@@ -62,8 +78,8 @@ class BrowseCourses extends Component {
 
     return (
       <React.Fragment>
-        <HeaderComponent state={state} profession={profession} sortField={sortField} selectState={this.getSelectedState} />
-        <WrapperComponent courseList={courseList} />
+        <HeaderComponent state={state} profession={profession} sortField={sortField} selectStateOption={this.getSelectStateOption} selectMedicalOption={this.getSelectMedicalOption} />
+        <WrapperComponent courseList={courseList} selectSortOption={this.getSelectSortOption} />
       </React.Fragment>
     )
   }
