@@ -1,95 +1,44 @@
 import React from 'react';
-import Accordion from 'react-bootstrap/Accordion';
+import PropTypes from 'prop-types';
 import Row from 'react-bootstrap/Row';
-import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
-import Form from 'react-bootstrap/Form';
+import AccordeonComponent from '../shared/accordeon';
+import IconComponent from '../shared/icon';
+
+import data from './../../static';
+
 import './style.scss';
 
-function FilterComponent() {
+const FilterComponent = (props) => {
+
+    const {
+        deliveryType,
+        courseType,
+        subjectArea } = props;
+
+    const filters = data && data.filters,
+        filterByCourse = filters && filters.byCourse,
+        filterByDelivery = filters && filters.byDelivery,
+        filterBysubject = filters && filters.bySubject;
+
     return (
         <Row>
-            <Col sm={12}>
-                <Accordion defaultActiveKey="0">
-                    <Card>
-                        <Accordion.Toggle as={Card.Header} eventKey="0">
-                            Course type
-                    </Accordion.Toggle>
-                        <Accordion.Collapse eventKey="0">
-                            <Card.Body>
-                                <Form>
-                                    {['radio'].map((type) => (
-                                        <div key={`default-${type}`} className="mb-3">
-                                            <Form.Check
-                                                type={type}
-                                                id={`default-${type}`}
-                                                label={`default ${type}`}
-                                            />
-                                            <Form.Check
-                                                type={type}
-                                                label={`default-${type}`}
-                                                id={`default-${type}`}
-                                            />
-                                        </div>
-                                    ))}
-                                </Form>
-                            </Card.Body>
-                        </Accordion.Collapse>
-                    </Card>
-                    <Card>
-                        <Accordion.Toggle as={Card.Header} eventKey="1">
-                            Delivery type
-                    </Accordion.Toggle>
-                        <Accordion.Collapse eventKey="1">
-                            <Card.Body>
-                                <Form>
-                                    {['radio'].map((type) => (
-                                        <div key={`default-${type}`} className="mb-3">
-                                            <Form.Check
-                                                type={type}
-                                                id={`default-${type}`}
-                                                label={`default ${type}`}
-                                            />
-                                            <Form.Check
-                                                type={type}
-                                                label={`default-${type}`}
-                                                id={`default-${type}`}
-                                            />
-                                        </div>
-                                    ))}
-                                </Form>
-                            </Card.Body>
-                        </Accordion.Collapse>
-                    </Card>
-                    <Card>
-                        <Accordion.Toggle as={Card.Header} eventKey="2">
-                            Subject area
-                    </Accordion.Toggle>
-                        <Accordion.Collapse eventKey="2">
-                            <Card.Body>
-                                <Form>
-                                    {['radio'].map((type) => (
-                                        <div key={`default-${type}`} className="mb-3">
-                                            <Form.Check
-                                                type={type}
-                                                id={`default-${type}`}
-                                                label={`default ${type}`}
-                                            />
-                                            <Form.Check
-                                                type={type}
-                                                label={`default-${type}`}
-                                                id={`default-${type}`}
-                                            />
-                                        </div>
-                                    ))}
-                                </Form>
-                            </Card.Body>
-                        </Accordion.Collapse>
-                    </Card>
-                </Accordion>
+            <Col sm={12} className="filter-content">
+                <div className="header-filter">
+                    <h5><IconComponent iconName={'sort-amount-asc'} /> Filter by course results</h5>
+                </div>
+                <AccordeonComponent accordeonContent={filterByCourse} defaultChecked={courseType} />
+                <AccordeonComponent accordeonContent={filterByDelivery} defaultChecked={deliveryType} />
+                <AccordeonComponent accordeonContent={filterBysubject} defaultChecked={subjectArea} />
             </Col>
         </Row>
     );
+}
+
+FilterComponent.propTypes = {
+    deliveryType: PropTypes.string,
+    courseType: PropTypes.string,
+    subjectArea: PropTypes.string,
 }
 
 export default FilterComponent;

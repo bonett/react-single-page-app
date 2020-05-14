@@ -1,13 +1,19 @@
 @import "./../../themes/variables.scss";
 
-header {
+.header {
     background-color: $blue-contrast-1;
-    height: 200px;
+    height: 180px;
     padding: 30px;
+
+    @media (max-width: 768px) {
+        &-content {
+            padding: 0;
+        }
+    }
 }
 
 @media (max-width: 768px) {
-    header {
+    .header {
         height: 320px;
     }
 }

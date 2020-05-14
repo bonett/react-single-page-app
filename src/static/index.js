@@ -1,6 +1,72 @@
 export default {
     findCE: "Find CE for a",
     sortedBy: "Sorted by: ",
+    filters: {
+        byCourse: [
+            {
+                id: 0,
+                title: "Course type",
+                inputs: [
+                    {
+                        name: "Self placed",
+                        value: "CD_ANYTIME"
+                    },
+                    {
+                        name: "Live",
+                        value: "LI"
+                    }
+                ]
+            }
+        ],
+        byDelivery: [
+            {
+                id: 0,
+                title: "Delivery type",
+                inputs: [
+                    {
+                        name: "Any delivery type",
+                        value: "ANY"
+                    },
+                    {
+                        name: "Computer-Based Training",
+                        value: "CBT"
+                    },
+                    {
+                        name: "Correspondence",
+                        value: "CO"
+                    },
+                    {
+                        name: "Mailed Material",
+                        value: "MM"
+                    }
+                ]
+            }
+        ],
+        bySubject: [
+            {
+                id: 0,
+                title: "Subject area",
+                inputs: [
+                    {
+                        name: "Any subject area",
+                        value: "ANYSUB"
+                    },
+                    {
+                        name: "HIV/AIDS",
+                        value: "HA"
+                    },
+                    {
+                        name: "End-of-life Care and Palliative Health Care",
+                        value: "EN"
+                    },
+                    {
+                        name: "Mailed Material",
+                        value: "Domestic Violence"
+                    }
+                ]
+            }
+        ]
+    },
     navbarItem: [
         {
             path: "/features",

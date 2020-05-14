@@ -1,0 +1,35 @@
+@import "./../../../themes/variables.scss";
+
+label {
+    margin-left: 10px;
+}
+
+label:before {
+    content: " ";
+    display: inline-block;
+    position: absolute;
+    top: 8px;
+    left: -4px;
+    margin: 0 5px 0 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 11px;
+    border: 2px solid $blue;
+    background-color: transparent;
+}
+
+input[type='radio'] {
+    display: none;
+}
+
+input[type='radio']:checked+label:after {
+    border-radius: 11px;
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    top: 13px;
+    left: 1px;
+    content: " ";
+    display: block;
+    background-color: $blue;
+}

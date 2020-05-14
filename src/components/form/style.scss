@@ -1,11 +1,18 @@
 @import "./../../themes/variables.scss";
 
 .form {
-    &__choose {
+    &-choose {
         align-items: center;
         display: flex;
         flex-direction: row;
         justify-content: center;
-        margin: 0.6rem 0;
+        margin-bottom: 0;
+        padding: 0 30px;
+    }
+
+    @media (max-width: 768px) {
+        &-choose {
+            padding: 0;
+        }
     }
 }

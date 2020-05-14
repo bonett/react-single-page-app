@@ -6,7 +6,7 @@ import NoMatch from './no-match';
 
 import data from './../static';
 
-function RouteApp() {
+const RouteApp = () => {
 
     const navbarItems = data && data.navbarItem,
         items = navbarItems;

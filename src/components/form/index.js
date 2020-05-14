@@ -32,11 +32,11 @@ const FormContent = (props) => {
         <Form className="form">
             <Row>
                 <Col md={{ span: 10, offset: 1 }} lg={{ span: 8, offset: 2 }}>
-                    <Form.Group as={Row} controlId="formPlaintextEmail" className="form__choose">
-                        <Col sm="12" md="3" lg="3">
+                    <Form.Group as={Row} controlId="formPlaintextEmail" className="form-choose">
+                        <Col sm="12" md="4" lg="4">
                             <LabelComponent text={label} theme={'dark'} />
                         </Col>
-                        <Col sm="12" md="4" lg="4">
+                        <Col sm="12" md="3" lg="3">
                             <SelectComponent theme={'dark'} data={states} onSelectedValue={state} selectOption={getSelectStateOption} />
                         </Col>
                         <Col sm="12" md="5" lg="5">
