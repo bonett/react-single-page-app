@@ -64,7 +64,7 @@ const CourseItemComponent = (props) => {
                                         <Col className="card__item-caption">
                                             <TextTruncate
                                                 line={3}
-                                                element="span"
+                                                element="h6"
                                                 truncateText="…"
                                                 text={item.course.name}
                                             />
