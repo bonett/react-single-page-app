@@ -9,7 +9,7 @@ const SelectComponent = (props) => {
     const { theme, data, onSelectedValue, selectOption } = props;
 
     return (
-        <Form.Group controlId="exampleForm.ControlSelect2" className={theme}>
+        <Form.Group className={theme}>
             <Form.Control as="select" value={onSelectedValue} onChange={e => selectOption(e.target.value)}>
                 {
                     data.map((item, index) => {

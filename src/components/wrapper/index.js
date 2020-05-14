@@ -16,7 +16,6 @@ const WrapperComponent = (props) => {
         pageIndex,
         previousPageItems,
         nextPageItems,
-        totalPages,
         deliveryType,
         courseType,
         subjectArea } = props;
@@ -39,7 +38,6 @@ const WrapperComponent = (props) => {
             <Tab eventKey="courses" title="COURSES">
                 <CourseListComponent
                     courseList={courseList}
-                    totalPages={totalPages}
                     featureList={featureList}
                     sortField={sortField}
                     selectSortOption={getSelectSortOption}
@@ -66,7 +64,6 @@ WrapperComponent.propTypes = {
     pageIndex: PropTypes.number,
     previousPageItems: PropTypes.func,
     nextPageItems: PropTypes.func,
-    totalPages: PropTypes.number,
     deliveryType: PropTypes.string,
     courseType: PropTypes.string,
     subjectArea: PropTypes.string,

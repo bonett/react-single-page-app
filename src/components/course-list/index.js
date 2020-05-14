@@ -21,7 +21,6 @@ const CourseListComponent = (props) => {
         pageIndex,
         nextPageItems,
         previousPageItems,
-        totalPages,
         deliveryType,
         courseType,
         subjectArea } = props;
@@ -36,6 +35,10 @@ const CourseListComponent = (props) => {
 
     const getPreviousPage = (size) => {
         previousPageItems(size);
+    }
+
+    const getTotalPages = (courses) => {
+        return courses ? Math.round(courses.totalItems / 10 + 0.3) : 0;
     }
 
     return (
@@ -53,7 +56,7 @@ const CourseListComponent = (props) => {
                             </Col>
                             <Col xs={12} sm={12} md={12} lg={9} className="courses__content">
                                 <Row className="courses__content-sort">
-                                    <Col><h6>Page {pageIndex} of {totalPages} results</h6></Col>
+                                    <Col><h6>Page {pageIndex} of {getTotalPages(courseList)} results</h6></Col>
                                     <Col>
                                         <SortItemComponent
                                             sortField={sortField}
@@ -74,7 +77,7 @@ const CourseListComponent = (props) => {
                                                 <PaginationComponent
                                                     pageIndex={pageIndex}
                                                     previousPageItems={getPreviousPage}
-                                                    totalPages={totalPages}
+                                                    totalPages={getTotalPages(courseList)}
                                                     nextPageItems={getNextPage}
                                                 />
                                             </React.Fragment> :
@@ -98,7 +101,6 @@ CourseListComponent.propTypes = {
     pageIndex: PropTypes.number,
     previousPageItems: PropTypes.func,
     nextPageItems: PropTypes.func,
-    totalPages: PropTypes.number,
     deliveryType: PropTypes.string,
     courseType: PropTypes.string,
     subjectArea: PropTypes.string,
