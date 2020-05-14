@@ -1,0 +1,15 @@
+@import "../../themes/variables.scss";
+
+.no {
+    &-match {
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        height: 300px;
+
+        code {
+            color: $green;
+        }
+    }
+}

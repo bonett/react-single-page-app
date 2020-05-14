@@ -1,136 +1,90 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import HeaderComponent from '../../components/header';
 import WrapperComponent from '../../components/wrapper';
 import _ from "lodash";
 
-class BrowseCourses extends Component {
-  constructor(props) {
-    super(props);
+const BrowseCourses = () => {
 
-    this.state = {
-      courseList: null,
-      featureList: null,
-      state: 'FL',
-      sortField: 'RELEVANCE',
-      profession: "36",
-      courseType: 'CD_ANYTIME',
-      pageIndex: 1,
-      PageSize: 10,
-      deliveryType: "ANY",
-      subjectArea: "ANYSUB",
-    };
-  }
+  const [courseList, setCourseList] = useState(null);
+  const [featureList, setFeatureList] = useState(null);
+  const [state, setState] = useState('FL');
+  const [sortField, setSortField] = useState('RELEVANCE');
+  const [profession, setProfession] = useState('36');
+  const [courseType] = useState('CD_ANYTIME');
+  const [pageIndex, setPageIndex] = useState(1);
+  const [PageSize] = useState(10);
+  const [deliveryType] = useState('ANY');
+  const [subjectArea] = useState('ANYSUB');
 
-  componentDidMount() {
-    this.getCourseFeatured();
-    this.getCourses()
-  }
-
-  getCourseFeatured() {
-    const { pageIndex, PageSize, sortField, profession, courseType } = this.state;
-
-    fetch(`https://api.courses.test.cebroker.com/offerings?expand=totalItems&pageIndex=${pageIndex}&pageSize=${PageSize}&sortField=${sortField}&profession=${profession}&courseType=${courseType}&isFeatured=true`).then(resolve => {
-      return resolve.json();
-    }).then(data => {
-      this.setState({
-        featureList: _.map(data.items, o => _.extend({ isFeatured: true }, o))
-      })
-    });
-  }
-
-  getCourses() {
-
-    const { pageIndex, PageSize, sortField, profession, courseType, state } = this.state;
-
-    const professionType = parseInt(profession);
-
-    fetch(`https://api.courses.test.cebroker.com/offerings?expand=totalItems&pageIndex=${pageIndex}&pageSize=${PageSize}&sortField=${sortField}&state=${state}&profession=${professionType}&courseType=${courseType}`).then(resolve => {
-      return resolve.json();
-    }).then(data => {
-      this.setState({
-        courseList: data
-      });
-    });
-  }
-
-  getSelectStateOption = (option) => {
-    this.setState({
-      state: option
-    });
-
-    this.getCourses();
-  }
-
-  getSelectMedicalOption = (option) => {
-    this.setState({
-      profession: option
-    });
-
-    this.getCourses();
-  }
-
-  getSelectSortOption = (option) => {
-    this.setState({
-      sortField: option
-    });
-
-    this.getCourses();
-  }
-
-  getNextPage = (size) => {
-
-    const { pageIndex } = this.state;
-
-    this.setState({
-      pageIndex: pageIndex + size
-    });
-
-    this.getCourses();
-  }
-
-  getPreviousPage = (size) => {
-
-    const { pageIndex } = this.state;
-
-    this.setState({
-      pageIndex: pageIndex - size
-    });
-
-    this.getCourses();
-  }
-
-  render() {
-    let totalPages = 0;
-    const { courseList, state, profession, sortField, pageIndex, featureList, deliveryType, courseType, subjectArea } = this.state;
-
-    if (courseList) {
-      totalPages = Math.round(courseList.totalItems / 10 + 0.3);
+  useEffect(() => {
+    async function getCourseFeatured() {
+      try {
+        const response = await fetch(`https://api.courses.test.cebroker.com/offerings?expand=totalItems&pageIndex=${pageIndex}&pageSize=${PageSize}&sortField=${sortField}&profession=${profession}&courseType=${courseType}&isFeatured=true`);
+        const data = await response.json();
+        const newData = _.map(data.items, o => _.extend({ isFeatured: true }, o));
+        setFeatureList(newData);
+      } catch (e) {
+        console.error(e);
+      }
     }
 
-    return (
-      <React.Fragment>
-        <HeaderComponent
-          state={state}
-          profession={profession}
-          sortField={sortField}
-          selectStateOption={this.getSelectStateOption}
-          selectMedicalOption={this.getSelectMedicalOption}
-        />
-        <WrapperComponent
-          courseList={courseList}
-          featureList={featureList}
-          selectSortOption={this.getSelectSortOption}
-          pageIndex={pageIndex}
-          previousPageItems={this.getPreviousPage}
-          nextPageItems={this.getNextPage}
-          totalPages={totalPages}
-          deliveryType={deliveryType}
-          courseType={courseType}
-          subjectArea={subjectArea}
-        />
-      </React.Fragment>
-    )
+    async function getCourses() {
+      try {
+        const professionType = parseInt(profession);
+        const response = await fetch(`https://api.courses.test.cebroker.com/offerings?expand=totalItems&pageIndex=${pageIndex}&pageSize=${PageSize}&sortField=${sortField}&state=${state}&profession=${professionType}&courseType=${courseType}`);
+        const data = await response.json();
+        setCourseList(data);
+      } catch (e) {
+        console.error(e);
+      }
+    }
+
+    getCourseFeatured();
+    getCourses();
+  }, [pageIndex, state, profession, courseType]);
+
+  const getSelectStateOption = (option) => {
+    setState(option)
   }
+
+  const getSelectMedicalOption = (option) => {
+    setProfession(option);
+  }
+
+  const getSelectSortOption = (option) => {
+    setSortField(option);
+  }
+
+  const getNextPage = (size) => {
+    setPageIndex(pageIndex + size);
+  }
+
+  const getPreviousPage = (size) => {
+    setPageIndex(pageIndex - size);
+  }
+
+  return (
+    <React.Fragment>
+      <HeaderComponent
+        state={state}
+        profession={profession}
+        sortField={sortField}
+        selectStateOption={getSelectStateOption}
+        selectMedicalOption={getSelectMedicalOption}
+      />
+      <WrapperComponent
+        courseList={courseList}
+        featureList={featureList}
+        selectSortOption={getSelectSortOption}
+        pageIndex={pageIndex}
+        previousPageItems={getPreviousPage}
+        nextPageItems={getNextPage}
+        deliveryType={deliveryType}
+        courseType={courseType}
+        subjectArea={subjectArea}
+      />
+    </React.Fragment>
+  )
 }
 
 export default BrowseCourses;
