@@ -13,7 +13,18 @@ import './style.scss';
 
 const CourseListComponent = (props) => {
 
-    const { courseList, featureList, sortField, selectSortOption, pageIndex, nextPageItems, previousPageItems, totalPages } = props;
+    const {
+        courseList,
+        featureList,
+        sortField,
+        selectSortOption,
+        pageIndex,
+        nextPageItems,
+        previousPageItems,
+        totalPages,
+        deliveryType,
+        courseType,
+        subjectArea } = props;
 
     const getSelectSortOption = (option) => {
         selectSortOption(option)
@@ -34,22 +45,38 @@ const CourseListComponent = (props) => {
                     <Col xs={{ span: 12, offset: 0 }} sm={{ span: 12, offset: 0 }} md={{ span: 12, offset: 0 }} lg={{ span: 10, offset: 1 }}>
                         <Row>
                             <Col xs={12} sm={12} md={12} lg={3} className="courses__filter">
-                                <FilterComponent />
+                                <FilterComponent
+                                    deliveryType={deliveryType}
+                                    courseType={courseType}
+                                    subjectArea={subjectArea}
+                                />
                             </Col>
                             <Col xs={12} sm={12} md={12} lg={9} className="courses__content">
                                 <Row className="courses__content-sort">
                                     <Col><h6>Page {pageIndex} of {totalPages} results</h6></Col>
                                     <Col>
-                                        <SortItemComponent sortField={sortField} selectSortOption={getSelectSortOption} />
+                                        <SortItemComponent
+                                            sortField={sortField}
+                                            selectSortOption={getSelectSortOption}
+                                        />
                                     </Col>
                                 </Row>
                                 <div>
                                     {
                                         courseList && featureList ?
                                             <React.Fragment>
-                                                <CourseItemComponent courseList={featureList} />
-                                                <CourseItemComponent courseList={courseList.items} />
-                                                <PaginationComponent pageIndex={pageIndex} previousPageItems={getPreviousPage} totalPages={totalPages} nextPageItems={getNextPage} />
+                                                <CourseItemComponent
+                                                    courseList={featureList}
+                                                />
+                                                <CourseItemComponent
+                                                    courseList={courseList.items}
+                                                />
+                                                <PaginationComponent
+                                                    pageIndex={pageIndex}
+                                                    previousPageItems={getPreviousPage}
+                                                    totalPages={totalPages}
+                                                    nextPageItems={getNextPage}
+                                                />
                                             </React.Fragment> :
                                             <SkeletonComponent />
                                     }
@@ -71,7 +98,10 @@ CourseListComponent.propTypes = {
     pageIndex: PropTypes.number,
     previousPageItems: PropTypes.func,
     nextPageItems: PropTypes.func,
-    totalPages:PropTypes.number,
+    totalPages: PropTypes.number,
+    deliveryType: PropTypes.string,
+    courseType: PropTypes.string,
+    subjectArea: PropTypes.string,
 }
 
 export default CourseListComponent;

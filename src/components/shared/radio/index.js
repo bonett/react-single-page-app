@@ -1,4 +1,4 @@
-import React, { useState }  from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import Form from 'react-bootstrap/Form';
 
@@ -6,13 +6,7 @@ import './style.scss';
 
 const RadioComponent = (props) => {
 
-    const { radioList } = props;
-
-    const [inputChecked, setInputChecked] = useState();
-
-    const getInputRadio = (event) => {
-        setInputChecked(event.target.value)
-    }
+    const { radioList, defaultChecked } = props;
 
     return (
         <Form>
@@ -22,10 +16,10 @@ const RadioComponent = (props) => {
                         <Form.Check
                             type={'Radio'}
                             id={type.value}
-                            checked={type.value === inputChecked}
+                            checked={type.value === defaultChecked}
                             label={type.name}
                             value={type.value}
-                            onChange={e => getInputRadio(e)}
+                            onChange={e => console.log(e.target.value)}
                         />
                     </div>
                 ))
@@ -35,7 +29,8 @@ const RadioComponent = (props) => {
 }
 
 RadioComponent.propTypes = {
-    radioList: PropTypes.any
+    radioList: PropTypes.any,
+    defaultChecked: PropTypes.string,
 }
 
 export default RadioComponent;

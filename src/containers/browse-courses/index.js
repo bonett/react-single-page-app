@@ -16,6 +16,8 @@ class BrowseCourses extends Component {
       courseType: 'CD_ANYTIME',
       pageIndex: 1,
       PageSize: 10,
+      deliveryType: "ANY",
+      subjectArea: "ANYSUB",
     };
   }
 
@@ -99,7 +101,7 @@ class BrowseCourses extends Component {
 
   render() {
     let totalPages = 0;
-    const { courseList, state, profession, sortField, pageIndex, featureList } = this.state;
+    const { courseList, state, profession, sortField, pageIndex, featureList, deliveryType, courseType, subjectArea } = this.state;
 
     if (courseList) {
       totalPages = Math.round(courseList.totalItems / 10 + 0.3);
@@ -107,8 +109,25 @@ class BrowseCourses extends Component {
 
     return (
       <React.Fragment>
-        <HeaderComponent state={state} profession={profession} sortField={sortField} selectStateOption={this.getSelectStateOption} selectMedicalOption={this.getSelectMedicalOption} />
-        <WrapperComponent courseList={courseList} featureList={featureList} selectSortOption={this.getSelectSortOption} pageIndex={pageIndex} previousPageItems={this.getPreviousPage} nextPageItems={this.getNextPage} totalPages={totalPages} />
+        <HeaderComponent
+          state={state}
+          profession={profession}
+          sortField={sortField}
+          selectStateOption={this.getSelectStateOption}
+          selectMedicalOption={this.getSelectMedicalOption}
+        />
+        <WrapperComponent
+          courseList={courseList}
+          featureList={featureList}
+          selectSortOption={this.getSelectSortOption}
+          pageIndex={pageIndex}
+          previousPageItems={this.getPreviousPage}
+          nextPageItems={this.getNextPage}
+          totalPages={totalPages}
+          deliveryType={deliveryType}
+          courseType={courseType}
+          subjectArea={subjectArea}
+        />
       </React.Fragment>
     )
   }

@@ -9,21 +9,23 @@ import IconComponent from '../icon';
 
 const AccordeonComponent = (props) => {
 
-    const { accordeonContent } = props;
+    const {
+        accordeonContent,
+        defaultChecked } = props;
 
     return (
         <React.Fragment>
             {
                 accordeonContent.map((item, index) => {
                     return (
-                        <Accordion activeKey={item.id} key={index}>
+                        <Accordion defaultActiveKey={item.id} key={index}>
                             <Card className="accordeon-content">
                                 <Accordion.Toggle as={Card.Header} eventKey={item.id}>
-                                    {item.title} <IconComponent iconName={'sort-desc'} /> <IconComponent iconName={'sort-up'} />
+                                    {item.title} <IconComponent iconName={'sort-up'} />
                                 </Accordion.Toggle>
                                 <Accordion.Collapse eventKey={item.id}>
                                     <Card.Body className="accordeon-form">
-                                        <RadioComponent radioList={item.inputs} />
+                                        <RadioComponent radioList={item.inputs} defaultChecked={defaultChecked}/>
                                         <ButtonComponent text={'View more'} variant={'more'} />
                                     </Card.Body>
                                 </Accordion.Collapse>
@@ -38,6 +40,7 @@ const AccordeonComponent = (props) => {
 
 AccordeonComponent.propTypes = {
     accordeonContent: PropTypes.any,
+    defaultChecked: PropTypes.string,
 }
 
 export default AccordeonComponent;

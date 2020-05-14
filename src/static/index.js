@@ -9,7 +9,7 @@ export default {
                 inputs: [
                     {
                         name: "Self placed",
-                        value: "ANYPLACE"
+                        value: "CD_ANYTIME"
                     },
                     {
                         name: "Live",
