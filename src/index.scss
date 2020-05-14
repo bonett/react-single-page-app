@@ -69,8 +69,12 @@ body {
 .card {
 
   &-header {
+    align-content: center;
     background-color: $white;
     border-bottom: 1px solid $white !important;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
   }
 
   &__item {

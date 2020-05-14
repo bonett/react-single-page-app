@@ -9,7 +9,7 @@ export default {
                 inputs: [
                     {
                         name: "Self placed",
-                        value: "SP"
+                        value: "ANYPLACE"
                     },
                     {
                         name: "Live",
@@ -49,7 +49,7 @@ export default {
                 inputs: [
                     {
                         name: "Any subject area",
-                        value: "ANY"
+                        value: "ANYSUB"
                     },
                     {
                         name: "HIV/AIDS",

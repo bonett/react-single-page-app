@@ -5,6 +5,7 @@ import Card from 'react-bootstrap/Card';
 import RadioComponent from '../radio';
 import ButtonComponent from '../button';
 import './style.scss';
+import IconComponent from '../icon';
 
 const AccordeonComponent = (props) => {
 
@@ -15,10 +16,10 @@ const AccordeonComponent = (props) => {
             {
                 accordeonContent.map((item, index) => {
                     return (
-                        <Accordion defaultActiveKey={item.id} key={index}>
+                        <Accordion activeKey={item.id} key={index}>
                             <Card className="accordeon-content">
                                 <Accordion.Toggle as={Card.Header} eventKey={item.id}>
-                                    {item.title}
+                                    {item.title} <IconComponent iconName={'sort-desc'} /> <IconComponent iconName={'sort-up'} />
                                 </Accordion.Toggle>
                                 <Accordion.Collapse eventKey={item.id}>
                                     <Card.Body className="accordeon-form">
