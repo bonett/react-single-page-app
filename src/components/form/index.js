@@ -59,8 +59,8 @@ const FormContent = (props) => {
 }
 
 FormContent.propTypes = {
-    state: PropTypes.string.isRequired,
-    profession: PropTypes.string.isRequired,
+    state: PropTypes.string,
+    profession: PropTypes.string,
     selectStateOption: PropTypes.func,
     selectMedicalOption: PropTypes.func,
 }
