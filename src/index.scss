@@ -104,6 +104,13 @@ body {
       flex-direction: column;
       justify-content: flex-start;
 
+      span {
+        color: $dark;
+        font-size: 1.2em;
+        padding-bottom: 5px;
+        text-transform: capitalize;
+      }
+
       .title {
         font-size: 1.2em;
         padding-bottom: 5px;

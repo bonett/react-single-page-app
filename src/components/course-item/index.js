@@ -1,4 +1,5 @@
 import React from 'react';
+import TextTruncate from 'react-text-truncate';
 import PropTypes from 'prop-types';
 import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
@@ -61,7 +62,12 @@ const CourseItemComponent = (props) => {
                                                 null
                                         }
                                         <Col className="card__item-caption">
-                                            <h3 className="title title--color">{item.course.name}</h3>
+                                            <TextTruncate
+                                                line={3}
+                                                element="span"
+                                                truncateText="…"
+                                                text={item.course.name}
+                                            />
                                             {
                                                 item.isFeatured ? <SmallComponent text={'FEATURED'} /> : null
                                             }
