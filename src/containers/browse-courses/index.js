@@ -5,21 +5,25 @@ import _ from "lodash";
 
 const BrowseCourses = () => {
 
+  const [filterState, setFilterState] = useState({
+    state: 'FL',
+    sortField: 'RELEVANCE',
+    profession: '36',
+    courseType: 'CD_ANYTIME',
+    pageSize: 10,
+    deliveryType: 'ANY',
+    subjectArea: 'ANYSUB'
+  });
+
+  const [pageIndex, setPageIndex] = useState(1);
   const [courseList, setCourseList] = useState(null);
   const [featureList, setFeatureList] = useState(null);
-  const [state, setState] = useState('FL');
-  const [sortField, setSortField] = useState('RELEVANCE');
-  const [profession, setProfession] = useState('36');
-  const [courseType] = useState('CD_ANYTIME');
-  const [pageIndex, setPageIndex] = useState(1);
-  const [PageSize] = useState(10);
-  const [deliveryType] = useState('ANY');
-  const [subjectArea] = useState('ANYSUB');
+
 
   useEffect(() => {
     async function getCourseFeatured() {
       try {
-        const response = await fetch(`https://api.courses.test.cebroker.com/offerings?expand=totalItems&pageIndex=${pageIndex}&pageSize=${PageSize}&sortField=${sortField}&profession=${profession}&courseType=${courseType}&isFeatured=true`);
+        const response = await fetch(`https://api.courses.test.cebroker.com/offerings?expand=totalItems&pageIndex=${pageIndex}&pageSize=${filterState.pageSize}&sortField=${filterState.sortField}&profession=${filterState.profession}&courseType=${filterState.courseType}&isFeatured=true`);
         const data = await response.json();
         const newData = _.map(data.items, o => _.extend({ isFeatured: true }, o));
         setFeatureList(newData);
@@ -30,8 +34,8 @@ const BrowseCourses = () => {
 
     async function getCourses() {
       try {
-        const professionType = parseInt(profession);
-        const response = await fetch(`https://api.courses.test.cebroker.com/offerings?expand=totalItems&pageIndex=${pageIndex}&pageSize=${PageSize}&sortField=${sortField}&state=${state}&profession=${professionType}&courseType=${courseType}`);
+        const professionType = parseInt(filterState.profession);
+        const response = await fetch(`https://api.courses.test.cebroker.com/offerings?expand=totalItems&pageIndex=${pageIndex}&pageSize=${filterState.pageSize}&sortField=${filterState.sortField}&state=${filterState.state}&profession=${professionType}&courseType=${filterState.courseType}`);
         const data = await response.json();
         setCourseList(data);
       } catch (e) {
@@ -41,18 +45,18 @@ const BrowseCourses = () => {
 
     getCourseFeatured();
     getCourses();
-  }, [pageIndex, state, profession, courseType]);
+  }, [pageIndex, filterState.state, filterState.profession, filterState.courseType]);
 
   const getSelectStateOption = (option) => {
-    setState(option)
+    setFilterState({ state: option });
   }
 
   const getSelectMedicalOption = (option) => {
-    setProfession(option);
+    setFilterState({ profession: option });
   }
 
   const getSelectSortOption = (option) => {
-    setSortField(option);
+    setFilterState({ sortField: option });
   }
 
   const getNextPage = (size) => {
@@ -66,9 +70,9 @@ const BrowseCourses = () => {
   return (
     <React.Fragment>
       <HeaderComponent
-        state={state}
-        profession={profession}
-        sortField={sortField}
+        state={filterState.state}
+        profession={filterState.profession}
+        sortField={filterState.sortField}
         selectStateOption={getSelectStateOption}
         selectMedicalOption={getSelectMedicalOption}
       />
@@ -79,9 +83,9 @@ const BrowseCourses = () => {
         pageIndex={pageIndex}
         previousPageItems={getPreviousPage}
         nextPageItems={getNextPage}
-        deliveryType={deliveryType}
-        courseType={courseType}
-        subjectArea={subjectArea}
+        deliveryType={filterState.deliveryType}
+        courseType={filterState.courseType}
+        subjectArea={filterState.subjectArea}
       />
     </React.Fragment>
   )
